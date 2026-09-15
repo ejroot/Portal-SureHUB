@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/png">
+
+
+    <title>Portal SureHUB</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-content">
+
+            <div class="logo">
+                <span>Sure</span><strong>HUB</strong>
+            </div>
+
+            <nav>
+                <a href="#sem-rollover">Sem Rollover</a>
+                <a href="#com-rollover">Com Rollover</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="container hero-content">
+
+            <span class="badge">PORTAL SUREHUB</span>
+
+            <h1>
+                Encontre a casa de apostas
+                <span>ideal para você.</span>
+            </h1>
+
+            <p>
+                Compare casas de apostas com e sem rollover
+                em um único lugar.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEM ROLLOVER -->
+    <section class="section" id="sem-rollover">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label green">
+                        SEM ROLLOVER
+                    </span>
+
+                    <h2>Casas sem Rollover</h2>
+
+                    <p>
+                        Casas onde você pode utilizar seu saldo
+                        sem a exigência de cumprir rollover.
+                    </p>
+                </div>
+
+                <span class="counter" id="counter-sem">
+                    0 casas
+                </span>
+
+            </div>
+
+
+            <div class="cards" id="cards-sem-rollover">
+                <!-- Os cards serão criados pelo JavaScript -->
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COM ROLLOVER -->
+    <section class="section section-dark" id="com-rollover">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label orange">
+                        COM ROLLOVER
+                    </span>
+
+                    <h2>Casas com Rollover</h2>
+
+                    <p>
+                        Casas que possuem requisitos de rollover
+                        para utilização ou saque dos bônus.
+                    </p>
+                </div>
+
+                <span class="counter" id="counter-com">
+                    0 casas
+                </span>
+
+            </div>
+
+
+            <div class="cards" id="cards-com-rollover">
+                <!-- Os cards serão criados pelo JavaScript -->
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="container footer-content">
+
+            <div class="logo">
+                <span>Sure</span><strong>HUB</strong>
+            </div>
+
+            <p>
+                © 2026 SureHUB. Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+    <!-- ========================================
+     GUIA SOBRE ROLLOVER
+======================================== -->
+
+<section class="rollover-guide">
+
+    <div class="container">
+
+        <div class="guide-header">
+
+            <span class="section-label guide-label">
+                GUIA SUREHUB
+            </span>
+
+            <h2>
+                O que é rollover nas casas de apostas?
+            </h2>
+
+            <p>
+                Entenda de forma simples como funcionam as casas
+                com e sem rollover, quais são as diferenças,
+                como os requisitos são calculados e o que você
+                precisa observar antes de utilizar uma promoção.
+            </p>
+
+        </div>
+
+
+        <!-- O QUE É ROLLOVER -->
+
+        <div class="guide-content">
+
+            <h3>O que significa rollover?</h3>
+
+            <p>
+                Rollover é um requisito de apostas que algumas casas
+                de apostas utilizam principalmente em promoções,
+                bônus de boas-vindas, bônus de depósito ou outras
+                campanhas promocionais.
+            </p>
+
+            <p>
+                Na prática, o rollover determina quanto você precisa
+                movimentar em apostas antes de poder retirar
+                determinado valor promocional ou cumprir as regras
+                estabelecidas pela casa.
+            </p>
+
+            <p>
+                O ponto mais importante é entender que rollover não
+                significa necessariamente que você precisa perder
+                dinheiro. O requisito normalmente está relacionado
+                ao volume de apostas realizadas de acordo com as
+                regras da promoção.
+            </p>
+
+            <p>
+                Cada casa de apostas pode estabelecer regras
+                diferentes. Por isso, é fundamental verificar as
+                condições específicas da promoção antes de realizar
+                qualquer depósito ou aposta.
+            </p>
+
+
+            <!-- EXEMPLO -->
+
+            <div class="example-box">
+
+                <div class="example-title">
+                    Exemplo de rollover
+                </div>
+
+                <p>
+                    Imagine que uma casa ofereça um bônus de
+                    <strong>R$ 100</strong> e determine um rollover
+                    de <strong>5x sobre o valor do bônus</strong>.
+                </p>
+
+                <p>
+                    Nesse caso, o cálculo seria:
+                </p>
+
+                <div class="calculation">
+                    R$ 100 × 5 = <strong>R$ 500</strong>
+                </div>
+
+                <p>
+                    Isso significa que, de acordo com essa regra
+                    hipotética, seria necessário realizar
+                    <strong>R$ 500 em apostas elegíveis</strong>
+                    para cumprir o requisito de rollover.
+                </p>
+
+                <p>
+                    Entretanto, esse é apenas um exemplo
+                    simplificado. Algumas promoções podem calcular
+                    o rollover sobre o bônus, sobre o depósito,
+                    sobre depósito + bônus ou utilizar outras
+                    condições.
+                </p>
+
+            </div>
+
+
+            <!-- CASA SEM ROLLOVER -->
+
+            <h3>
+                O que são casas de apostas sem rollover?
+            </h3>
+
+            <p>
+                Quando falamos em uma casa de apostas "sem
+                rollover", estamos nos referindo, dentro da
+                classificação utilizada pelo portal, a uma casa
+                ou oferta que não exige que o usuário cumpra um
+                determinado volume de apostas para utilizar ou
+                retirar o valor em questão.
+            </p>
+
+            <p>
+                Isso pode tornar a experiência mais simples,
+                principalmente para usuários que não querem ficar
+                acompanhando metas de apostas ou requisitos
+                promocionais.
+            </p>
+
+            <p>
+                Por exemplo, imagine que você deposite
+                <strong>R$ 100</strong> em uma casa que não possui
+                rollover sobre esse saldo. Você realiza suas
+                apostas normalmente e, caso tenha saldo disponível
+                para saque e cumpra as demais regras da plataforma,
+                não precisa atingir uma meta como "apostar cinco
+                vezes o valor depositado" apenas para cumprir um
+                rollover.
+            </p>
+
+
+            <div class="example-box example-blue">
+
+                <div class="example-title">
+                    Exemplo de uma situação sem rollover
+                </div>
+
+                <p>
+                    Você deposita:
+                </p>
+
+                <div class="calculation">
+                    R$ 100
+                </div>
+
+                <p>
+                    Depois de realizar suas apostas, suponha que seu
+                    saldo disponível seja de:
+                </p>
+
+                <div class="calculation">
+                    R$ 180
+                </div>
+
+                <p>
+                    Se a oferta não possui rollover e você atende
+                    todas as demais condições da casa, não existe
+                    uma exigência adicional de, por exemplo,
+                    "apostar R$ 500 antes de poder sacar".
+                </p>
+
+                <p>
+                    Isso não significa que qualquer saque será
+                    automaticamente liberado. A casa ainda pode
+                    possuir outras regras relacionadas a
+                    verificação de identidade, métodos de
+                    pagamento, limites, regras de apostas,
+                    promoções ou prevenção a fraudes.
+                </p>
+
+            </div>
+
+
+            <!-- CASA COM ROLLOVER -->
+
+            <h3>
+                O que são casas de apostas com rollover?
+            </h3>
+
+            <p>
+                As casas ou promoções classificadas como "com
+                rollover" possuem algum tipo de requisito de
+                movimentação ou volume de apostas que precisa ser
+                cumprido de acordo com as condições estabelecidas.
+            </p>
+
+            <p>
+                Esse requisito aparece com frequência em ofertas
+                promocionais. O objetivo é estabelecer uma condição
+                para que o bônus ou determinado benefício possa ser
+                utilizado ou sacado.
+            </p>
+
+            <p>
+                Por isso, quando você encontrar uma casa com
+                rollover no SureHUB, é importante observar
+                exatamente qual é o multiplicador informado e
+                principalmente <strong>sobre qual valor ele é
+                aplicado</strong>.
+            </p>
+
+
+            <div class="example-box example-blue">
+
+                <div class="example-title">
+                    Exemplo de uma casa com rollover
+                </div>
+
+                <p>
+                    Imagine uma promoção em que você deposita
+                    <strong>R$ 200</strong> e recebe um bônus de
+                    <strong>R$ 100</strong>.
+                </p>
+
+                <p>
+                    A promoção estabelece um rollover de
+                    <strong>5x sobre o bônus</strong>.
+                </p>
+
+                <p>
+                    Nesse caso:
+                </p>
+
+                <div class="calculation">
+                    R$ 100 × 5 = <strong>R$ 500</strong>
+                </div>
+
+                <p>
+                    Portanto, o requisito de volume de apostas
+                    relacionado ao bônus seria de R$ 500, conforme
+                    essa regra hipotética.
+                </p>
+
+                <p>
+                    Perceba que o cálculo depende da regra da
+                    promoção. Se a casa informar que o rollover é
+                    aplicado sobre o depósito + bônus, o cálculo
+                    seria diferente:
+                </p>
+
+                <div class="calculation">
+                    (R$ 200 + R$ 100) × 5 =
+                    <strong>R$ 1.500</strong>
+                </div>
+
+                <p>
+                    É justamente por isso que não basta olhar apenas
+                    para o número "5x". É necessário entender
+                    <strong>qual valor será multiplicado</strong>.
+                </p>
+
+            </div>
+
+
+            <!-- DIFERENÇA -->
+
+            <h3>
+                Qual é a diferença entre uma casa com e sem rollover?
+            </h3>
+
+            <p>
+                A principal diferença está na existência ou não de
+                um requisito de volume de apostas relacionado à
+                oferta ou ao saldo promocional.
+            </p>
+
+            <div class="comparison-table">
+
+                <div class="comparison-row comparison-head">
+
+                    <div>
+                        Característica
+                    </div>
+
+                    <div>
+                        Sem rollover
+                    </div>
+
+                    <div>
+                        Com rollover
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-row">
+
+                    <div>
+                        Exigência de volume
+                    </div>
+
+                    <div>
+                        Não há rollover na oferta classificada
+                        dessa forma
+                    </div>
+
+                    <div>
+                        Existe requisito de apostas
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-row">
+
+                    <div>
+                        Complexidade
+                    </div>
+
+                    <div>
+                        Geralmente mais simples
+                    </div>
+
+                    <div>
+                        Pode exigir atenção aos cálculos
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-row">
+
+                    <div>
+                        Bônus
+                    </div>
+
+                    <div>
+                        Pode existir ou não
+                    </div>
+
+                    <div>
+                        Frequentemente associado a promoções
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-row">
+
+                    <div>
+                        Regras
+                    </div>
+
+                    <div>
+                        Ainda existem outras regras da plataforma
+                    </div>
+
+                    <div>
+                        Além das regras normais, existe o requisito
+                        de rollover
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ATENÇÃO -->
+
+            <div class="warning-box">
+
+                <h3>
+                    ⚠️ Atenção às regras
+                </h3>
+
+                <p>
+                    A classificação de uma casa como "com rollover"
+                    ou "sem rollover" não significa que todas as
+                    condições da plataforma sejam iguais.
+                </p>
+
+                <p>
+                    Uma casa pode não possuir rollover em
+                    determinada oferta, mas ainda estabelecer
+                    outras condições para depósitos, saques,
+                    bônus, apostas qualificadas, limites,
+                    verificação de identidade ou utilização da
+                    promoção.
+                </p>
+
+                <p>
+                    Da mesma forma, uma casa pode possuir diferentes
+                    promoções com regras diferentes. Uma oferta pode
+                    ter rollover enquanto outra oferta da mesma
+                    plataforma pode possuir condições diferentes.
+                </p>
+
+                <p>
+                    Por esse motivo, sempre recomendamos consultar
+                    os termos e condições oficiais da oferta antes
+                    de realizar qualquer operação.
+                </p>
+
+            </div>
+
+
+            <!-- COMO ANALISAR -->
+
+            <h3>
+                Como analisar uma oferta antes de utilizá-la?
+            </h3>
+
+            <p>
+                Antes de participar de uma promoção, não olhe apenas
+                para o valor do bônus. O ideal é analisar o conjunto
+                de regras da oferta.
+            </p>
+
+            <p>
+                Alguns dos principais pontos que devem ser
+                observados são:
+            </p>
+
+            <ul class="guide-list">
+
+                <li>
+                    Qual é o valor mínimo de depósito?
+                </li>
+
+                <li>
+                    Qual é o valor do bônus?
+                </li>
+
+                <li>
+                    Existe rollover?
+                </li>
+
+                <li>
+                    Qual é o multiplicador do rollover?
+                </li>
+
+                <li>
+                    O rollover é aplicado sobre o depósito, bônus
+                    ou depósito + bônus?
+                </li>
+
+                <li>
+                    Quais tipos de apostas contam para o rollover?
+                </li>
+
+                <li>
+                    Existe uma odd mínima?
+                </li>
+
+                <li>
+                    Existe prazo para cumprir o requisito?
+                </li>
+
+                <li>
+                    Existe valor máximo de bônus?
+                </li>
+
+                <li>
+                    Existem limites de saque?
+                </li>
+
+                <li>
+                    Existem outras condições específicas?
+                </li>
+
+            </ul>
+
+
+            <!-- SUREHUB -->
+
+            <div class="surehub-note">
+
+                <h3>
+                    Como o SureHUB organiza essas informações?
+                </h3>
+
+                <p>
+                    O objetivo do SureHUB é facilitar a visualização
+                    dessas informações, organizando as casas de
+                    apostas em categorias para que o usuário consiga
+                    identificar rapidamente quais plataformas ou
+                    ofertas possuem rollover e quais não possuem,
+                    de acordo com as informações apresentadas em
+                    cada cadastro.
+                </p>
+
+                <p>
+                    As informações exibidas no portal devem ser
+                    utilizadas como referência. As regras das casas
+                    de apostas e de suas promoções podem ser
+                    alteradas a qualquer momento.
+                </p>
+
+                <p>
+                    Por isso, antes de realizar um depósito,
+                    participar de uma promoção ou solicitar um
+                    saque, confira sempre as condições atuais
+                    diretamente na plataforma correspondente.
+                </p>
+
+            </div>
+
+
+            <!-- RESPONSABILIDADE -->
+
+            <div class="responsibility">
+
+                <h3>
+                    Jogue com responsabilidade
+                </h3>
+
+                <p>
+                    Apostas esportivas envolvem risco financeiro e
+                    não devem ser tratadas como uma forma garantida
+                    de renda. Nunca aposte valores que façam falta
+                    para suas despesas, compromissos financeiros ou
+                    necessidades pessoais.
+                </p>
+
+                <p>
+                    O objetivo deste portal é apresentar informações
+                    e facilitar a comparação entre diferentes
+                    plataformas e ofertas. Cada usuário é
+                    responsável por suas próprias decisões e deve
+                    conhecer as regras da plataforma antes de
+                    participar de qualquer atividade.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <script src="script.js"></script>
+
+</body>
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="container footer-content">
+
+            <div class="logo">
+                <span>Sure</span><strong>HUB</strong>
+            </div>
+
+            <p>
+                © 2026 SureHUB. Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+</html>
