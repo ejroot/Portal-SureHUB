@@ -249,651 +249,90 @@ const casas = [
 
 
      {
-        nome: "7Games",
+        nome: "7K",
         categoria: "sem-rollover",
         descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
         rollover: "Não possui",
         bonus: "",
-        logo: "semrollover/7games.png",
-        url: ""
+        logo: "semrollover/7k.png",
+        url: "https://7k.bet.br/"
     },
 
 
      {
-        nome: "7Games",
+        nome: "Aposta Tudo",
         categoria: "sem-rollover",
         descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
         rollover: "Não possui",
         bonus: "",
-        logo: "semrollover/7games.png",
-        url: ""
+        logo: "semrollover/apostatudo.png",
+        url: "https://apostatudo.bet.br/"
     },
 
 
      {
-        nome: "7Games",
+        nome: "Bet.Bet",
         categoria: "sem-rollover",
         descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
         rollover: "Não possui",
         bonus: "",
-        logo: "semrollover/7games.png",
-        url: ""
+        logo: "semrollover/bet.bet.png",
+        url: "https://betpontobet.bet.br/"
     },
 
 
      {
-        nome: "7Games",
+        nome: "Betano",
         categoria: "sem-rollover",
         descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
         rollover: "Não possui",
         bonus: "",
-        logo: "semrollover/7games.png",
-        url: ""
+        logo: "semrollover/betano.jpeg",
+        url: "https://www.betano.bet.br/"
     },
 
 
      {
-        nome: "7Games",
+        nome: "Bet BRA",
         categoria: "sem-rollover",
         descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
         rollover: "Não possui",
         bonus: "",
-        logo: "semrollover/7games.png",
-        url: ""
+        logo: "semrollover/betbra.png",
+        url: "https://betbra.bet.br/"
     },
 
 
      {
-        nome: "7Games",
+        nome: "BetFair",
         categoria: "sem-rollover",
         descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
         rollover: "Não possui",
         bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
+        logo: "semrollover/betfair.png",
+        url: "https://www.betfair.bet.br/apostas/"
     },
 
 
      {
-        nome: "7Games",
+        nome: "Betsson",
         categoria: "sem-rollover",
         descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
         rollover: "Não possui",
         bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
+        logo: "semrollover/betsson.png",
+        url: "https://www.betsson.bet.br/"
     },
 
  {
-        nome: "7Games",
+        nome: "Bet VIP",
         categoria: "sem-rollover",
         descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
         rollover: "Não possui",
         bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
+        logo: "semrollover/betvip.png",
+        url: "https://betvip.bet.br/"
     },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
-     {
-        nome: "7Games",
-        categoria: "sem-rollover",
-        descricao: "Casa de apostas sem requisito de rollover, o que você depositar, pode ser sacado.",
-        rollover: "Não possui",
-        bonus: "",
-        logo: "semrollover/7games.png",
-        url: "https://7games.bet.br/?utm_source=google&utm_medium=cpc&utm_campaign=22134372417&utm_term=7games&utm_content=173188436106&gad_source=1&gad_campaignid=22134372417&gbraid=0AAAAAqktsfJoyPmrG9vpvgVp1UNb7EfFJ&gclid=CjwKCAjw7fzDBhA7EiwAOqJkhxbStio0JGFnLznGzU-O7FhDlLAPONAlFPvYQdWBMb5-44pTv2F6jBoC5BEQAvD_BwE"
-    },
-
 
 
     /* ====================================
