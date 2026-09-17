@@ -46,7 +46,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/vaidebet.png",
-        url: ""
+        url: "https://www.vaidebet.bet.br/home"
     },
 
 
@@ -57,7 +57,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/apostaganha.png",
-        url: ""
+        url: "https://apostaganha.bet.br/esportes/home#/overview"
     },
 
 
@@ -68,7 +68,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/bet365.png",
-        url: ""
+        url: "https://www.bet365.bet.br/#/HO/"
     },
 
 
@@ -79,7 +79,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/betdasorte.png",
-        url: ""
+        url: "https://www.betdasorte.bet.br/?affiliate=zttyeqmttxccddymerjoswwigh&afp=20251016-1035-4937-b226-a2c7f70fb5f9&source_id=10778&utm_campaign=10778_reg"
     },
 
 
@@ -90,7 +90,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/betmgm.jpeg",
-        url: ""
+        url: "https://www.betmgm.bet.br/auth?authRedirect=%2F%3Fintent%3DLOGIN%26provider%3DUSERNAME_PASSWORD&intent=login"
     },
 
 
@@ -101,7 +101,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/betpix.jpeg",
-        url: ""
+        url: "https://www.betpix365.bet.br/"
     },
 
 
@@ -112,7 +112,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/brx.png",
-        url: ""
+        url: "https://brx.bet.br?ref=0e2d6e5672bc"
     },
 
 
@@ -123,7 +123,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/donald.jpeg",
-        url: ""
+        url: "https://donald.bet.br/"
     },
 
 
@@ -134,7 +134,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/esportedasorte.png",
-        url: ""
+        url: "https://esportesdasorte.bet.br/ptb/bet/main"
     },
 
 
@@ -145,7 +145,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/gorillas.jpeg",
-        url: ""
+        url: "https://betgorillas.bet.br/"
     },
 
 
@@ -156,7 +156,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/jogodeouro.jpg",
-        url: ""
+        url: "https://jogodeouro.bet.br/pt/home?ref=522301&btag=elspeqhgvgjnenploywamaxank&gad_source=1&gad_campaignid=23371377104&gbraid=0AAAABCQLi4KBokjsAEfSdympp0CHEAJ2y&gclid=CjwKCAjw7vzOBhBxEiwAc7WNryeJKP7LaRNgylqzKqas3uO8p3j1uYlcwoAnGpgYSe4ppbJqfyPVmBoCm7AQAvD_BwE"
     },
 
 
@@ -167,7 +167,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/multibet.png",
-        url: ""
+        url: "https://multi.bet.br/pb/jogos"
     },
 
 
@@ -178,7 +178,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/novibet.jpeg",
-        url: ""
+        url: "https://www.novibet.bet.br/apostas-esportivas"
     },
 
 
@@ -189,7 +189,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/onabet.jpeg",
-        url: ""
+        url: "https://m.ona.bet.br/signin?path=lOGINMULTICHANNELString"
     },
 
 
@@ -200,7 +200,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/sporting.png",
-        url: ""
+        url: "https://www.sportingbet.bet.br/pt-br/sports"
     },
 
 
@@ -211,7 +211,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/superbet.png",
-        url: ""
+        url: "https://superbet.bet.br/?utm_source=google&utm_medium=ppc&utm_campaign=ppc-bet-acq-ext-brand_protect_gratis_newaccount-brand-all-sup&gad_source=1&gad_campaignid=21976229967&gbraid=0AAAAA-bk3h7CiJ7NkJ-8bRwvTSqvor6Dd&gclid=Cj0KCQjwovPGBhDxARIsAFhgkwQdy6w4MFE--FymEu117sunC2T4p4AsH1HT3HnXEJ816NH5pu6nioAaArAqEALw_wcB"
     },
 
 
@@ -222,7 +222,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/tradicional.png",
-        url: ""
+        url: "https://tradicional.bet.br/"
     },
 
 
@@ -233,7 +233,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/ultra.png",
-        url: ""
+        url: "https://ultra.bet.br/"
     },
 
 
@@ -244,7 +244,7 @@ const casas = [
         rollover: "Não possui",
         bonus: "",
         logo: "semrollover/vupi.png",
-        url: ""
+        url: "https://www.vupi.bet.br/"
     },
 
 
