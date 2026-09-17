@@ -977,6 +977,16 @@ const casas = [
         bonus: "",
         logo: "rollover/zonadejogo.png",
         url: "https://www.zonadejogo.bet.br/"
+    },
+
+    {
+        nome: "Brazino 777",
+        categoria: "com-rollover",
+        descricao: "Plataforma com promoções e requisitos de rollover no saque e no bônus.",
+        rollover: "Dep/Saque: 10x",
+        bonus: "50x",
+        logo: "rollover/brazino777.jpg",
+        url: "https://www.brazino777.bet.br/"
     }
 
 ];
