@@ -916,6 +916,140 @@
             }
         }
     </style>
+
+<style id="surehub-dark-mode-and-brand">
+/* Logo oficial no cabeçalho */
+.surehub-logo-mark{
+    width:44px;
+    height:44px;
+    object-fit:cover;
+    object-position:center;
+    border-radius:10px;
+    display:block;
+}
+.brand-name{display:inline-flex;align-items:baseline;font-weight:900;letter-spacing:-.5px}
+.logo .brand-sure{color:#FFFFFF !important}
+.logo .brand-hub{color:#0188F6 !important}
+
+/* Ações do cabeçalho */
+.header-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{
+    display:inline-flex;align-items:center;gap:9px;
+    min-height:42px;padding:5px 7px 5px 12px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:999px;background:rgba(255,255,255,.07);
+    color:#fff;font-weight:800;font-size:13px;cursor:pointer;
+    transition:.25s ease;
+}
+.theme-toggle:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
+.theme-toggle-track{
+    position:relative;width:50px;height:28px;border-radius:999px;
+    background:#273443;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+    transition:.25s ease;
+}
+.theme-toggle-thumb{
+    position:absolute;top:3px;left:3px;width:22px;height:22px;
+    display:flex;align-items:center;justify-content:center;border-radius:50%;
+    background:#fff;color:#17202a;font-size:13px;transition:.25s ease;
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+body.dark-mode .theme-toggle-track{background:linear-gradient(135deg,#0188F6,#005EF5)}
+body.dark-mode .theme-toggle-thumb{transform:translateX(22px);background:#07111F;color:#facc15}
+
+/* Tema noturno */
+body.dark-mode{
+    --fundo:#07111F;
+    --bg:#07111F;
+    --branco:#0D1928;
+    --borda:#223247;
+    --border:#223247;
+    --preto-suave:#F5F8FC;
+    --text:#F5F8FC;
+    --cinza-texto:#AEB9C7;
+    --muted:#AEB9C7;
+    background:
+      radial-gradient(circle at top right,rgba(3,200,247,.10),transparent 30%),
+      radial-gradient(circle at top left,rgba(1,136,246,.12),transparent 30%),
+      #07111F;
+    color:#F5F8FC;
+}
+body.dark-mode .card,
+body.dark-mode .standard-calculator{
+    background:#0D1928;border-color:#223247;box-shadow:0 8px 28px rgba(0,0,0,.24)
+}
+body.dark-mode .hero h1,
+body.dark-mode .card-title h2,
+body.dark-mode .status-title,
+body.dark-mode .result-number,
+body.dark-mode label,
+body.dark-mode .main-stake,
+body.dark-mode .standard-calculator-heading h2{color:#F5F8FC}
+body.dark-mode .hero p,
+body.dark-mode .card-title p,
+body.dark-mode .summary-label,
+body.dark-mode .distribution-title,
+body.dark-mode .status-text,
+body.dark-mode .info p,
+body.dark-mode footer,
+body.dark-mode .standard-calculator-heading p{color:#AEB9C7}
+body.dark-mode input,
+body.dark-mode select{background:#091727;border-color:#26384E;color:#fff}
+body.dark-mode .result-row,
+body.dark-mode .summary-box,
+body.dark-mode .status{background:#101E2E;border-color:#26384E}
+body.dark-mode table{background:#0D1928;color:#F5F8FC}
+body.dark-mode th,
+body.dark-mode td{color:#EAF0F7;border-color:#26384E}
+body.dark-mode tbody tr:hover{background:rgba(1,136,246,.08)}
+body.dark-mode .info{background:rgba(1,136,246,.08);border-color:rgba(3,200,247,.22)}
+body.dark-mode .info strong{color:#03C8F7}
+body.dark-mode .calculated-stake{background:rgba(1,136,246,.12);border-color:rgba(3,200,247,.24);color:#AEB9C7}
+body.dark-mode .calculated-stake strong,
+body.dark-mode .stake-field label{color:#54D9FA}
+body.dark-mode .btn-secondary{background:#101E2E;color:#54D9FA;border-color:#0188F6}
+body.dark-mode .btn-secondary:hover{background:#15283D}
+body.dark-mode .bar{background:#26384E}
+body.dark-mode .calc-key{background:#172638;color:#F5F8FC}
+body.dark-mode .calc-key:hover{background:#20344A}
+body.dark-mode .calc-key.operator{background:rgba(1,136,246,.16);color:#54D9FA}
+body.dark-mode .summary-value{color:#54D9FA}
+body.dark-mode .summary-value.positive{color:#4ade80}
+body.dark-mode .summary-value.negative{color:#ff7b86}
+body.dark-mode .summary-value.neutral{color:#facc15}
+
+/* Mantém a identidade da marca nos dois temas */
+body.dark-mode .logo .brand-sure{color:#FFFFFF !important}
+body.dark-mode .logo .brand-hub{color:#0188F6 !important}
+
+@media(max-width:620px){
+    .header-actions{gap:7px}
+    .theme-toggle{padding-left:8px}
+    .theme-toggle-label{display:none}
+    .surehub-logo-mark{width:38px;height:38px}
+    .logo{gap:7px;font-size:18px}
+    .back-link{font-size:12px}
+}
+</style>
+
+
+<style id="surehub-editable-logo-slot">
+.surehub-logo-mark{
+    flex:0 0 auto;
+    background:rgba(255,255,255,.04);
+}
+/* Se logo-surehub.png ainda não existir, o espaço continua reservado. */
+.logo:has(.surehub-logo-mark[style*="visibility: hidden"]) .surehub-logo-mark{
+    width:44px;
+    height:44px;
+}
+@media(max-width:620px){
+    .logo:has(.surehub-logo-mark[style*="visibility: hidden"]) .surehub-logo-mark{
+        width:38px;
+        height:38px;
+    }
+}
+</style>
+
 </head>
 
 <body>
@@ -924,13 +1058,27 @@
     <div class="container header-content">
 
 <a href="index.html" class="logo">
-    <img src="favicon.png" alt="">
-    <span>SureHUB</span>
+    <!-- LOGOMARCA SUREHUB
+     Coloque o arquivo da sua logo na mesma pasta deste HTML
+     e use o nome "logo-surehub.png".
+     Se quiser outro nome/caminho, altere apenas o src abaixo. -->
+<img src="favicon.png"
+     alt="Logo SureHUB"
+     class="surehub-logo-mark"
+     onerror="this.style.visibility='hidden';"
+>
+    <span class="brand-name"><span class="brand-sure">Sure</span><span class="brand-hub">HUB</span></span>
 </a>
 
-        <a href="index.html" class="back-link">
+        <div class="header-actions">
+<button type="button" id="themeToggle" class="theme-toggle" aria-label="Ativar modo noturno" aria-pressed="false">
+    <span class="theme-toggle-label">Modo noturno</span>
+    <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb">☀</span></span>
+</button>
+<a href="index.html" class="back-link">
             ← Voltar ao portal
         </a>
+</div>
 
     </div>
 </header>
@@ -2401,6 +2549,130 @@
 
     calculate();
 
+</script>
+
+
+
+<script id="surehub-standard-keyboard-support">
+(() => {
+    function calculatorIsReady() {
+        return typeof inputStandardValue === "function"
+            && typeof chooseStandardOperator === "function"
+            && typeof finishStandardCalculation === "function"
+            && typeof clearStandardCalculator === "function";
+    }
+
+    function runBackspace() {
+        if (typeof standardWaitingForOperand === "undefined") return;
+        if (!standardWaitingForOperand && standardInput !== "Erro") {
+            standardInput =
+                standardInput.length > 1
+                    ? standardInput.slice(0, -1)
+                    : "0";
+
+            if (typeof showCurrentStandardOperation === "function") {
+                showCurrentStandardOperation(true);
+            }
+            if (typeof renderStandardDisplay === "function") {
+                renderStandardDisplay();
+            }
+        }
+    }
+
+    document.addEventListener("keydown", event => {
+        if (!calculatorIsReady()) return;
+
+        /* Não interfere quando o usuário está digitando nos campos
+           da calculadora Dutching (banca, odds, comissão etc.). */
+        const target = event.target;
+        const isFormField =
+            target instanceof HTMLInputElement ||
+            target instanceof HTMLTextAreaElement ||
+            target instanceof HTMLSelectElement ||
+            target.isContentEditable;
+
+        if (isFormField) return;
+
+        const key = event.key;
+
+        if (/^[0-9]$/.test(key)) {
+            event.preventDefault();
+            inputStandardValue(key);
+            return;
+        }
+
+        if (key === "." || key === ",") {
+            event.preventDefault();
+            inputStandardValue(".");
+            return;
+        }
+
+        if (["+", "-", "*", "/"].includes(key)) {
+            event.preventDefault();
+            chooseStandardOperator(key);
+            return;
+        }
+
+        /* Teclado numérico também pode enviar "x" em alguns layouts. */
+        if (key.toLowerCase() === "x") {
+            event.preventDefault();
+            chooseStandardOperator("*");
+            return;
+        }
+
+        if (key === "Enter" || key === "=") {
+            event.preventDefault();
+            finishStandardCalculation();
+            return;
+        }
+
+        if (key === "Backspace") {
+            event.preventDefault();
+            runBackspace();
+            return;
+        }
+
+        if (key === "Escape" || key === "Delete") {
+            event.preventDefault();
+            clearStandardCalculator();
+            return;
+        }
+
+        if (key === "%") {
+            event.preventDefault();
+            if (standardInput !== "Erro") {
+                standardInput = normalizeStandardResult(
+                    parseFloat(standardInput) / 100
+                );
+                showCurrentStandardOperation(true);
+                renderStandardDisplay();
+            }
+        }
+    });
+})();
+</script>
+
+
+<script id="surehub-theme-toggle-script">
+(() => {
+    const button = document.getElementById("themeToggle");
+    if (!button) return;
+    const label = button.querySelector(".theme-toggle-label");
+    const thumb = button.querySelector(".theme-toggle-thumb");
+
+    function applyTheme(isDark) {
+        document.body.classList.toggle("dark-mode", isDark);
+        button.setAttribute("aria-pressed", String(isDark));
+        button.setAttribute("aria-label", isDark ? "Desativar modo noturno" : "Ativar modo noturno");
+        if (label) label.textContent = isDark ? "Modo claro" : "Modo noturno";
+        if (thumb) thumb.textContent = isDark ? "☾" : "☀";
+    }
+
+    applyTheme(false);
+    button.addEventListener("click", () => {
+        applyTheme(!document.body.classList.contains("dark-mode"));
+    });
+})();
 </script>
 
 </body>
