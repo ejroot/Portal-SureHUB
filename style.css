@@ -1222,3 +1222,17 @@ footer {
     }
 
 }
+/* BUSCA DE CASAS */
+.portal-search{margin-top:34px;width:100%;max-width:650px}
+.search-input-wrap{position:relative;display:flex;align-items:center}
+.search-input-wrap input{width:100%;height:56px;padding:0 52px 0 50px;border-radius:14px;border:1px solid rgba(3,200,247,.25);background:rgba(255,255,255,.08);color:var(--branco);font-size:15px;outline:none;transition:.25s;backdrop-filter:blur(8px)}
+.search-input-wrap input::placeholder{color:#9DA6B1}
+.search-input-wrap input:focus{border-color:var(--azul-claro);background:rgba(255,255,255,.11);box-shadow:0 0 0 4px rgba(3,200,247,.10),0 10px 30px rgba(0,0,0,.18)}
+.search-icon{position:absolute;left:18px;z-index:2;color:var(--azul-claro);font-size:25px;pointer-events:none}
+.clear-search{position:absolute;right:12px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,255,255,.10);color:#C7CCD3;font-size:22px;cursor:pointer;display:none}
+.clear-search:hover{color:#fff;background:rgba(1,136,246,.25)}
+.search-help{margin-top:10px!important;max-width:none!important;font-size:12px!important;color:#89939F!important}
+.search-result{margin-top:12px;min-height:20px;font-size:13px;font-weight:bold;color:var(--azul-claro)}
+.search-no-results{grid-column:1/-1;padding:28px;text-align:center;border:1px dashed rgba(1,136,246,.28);border-radius:14px;color:var(--cinza-texto);background:rgba(1,136,246,.035)}
+.section-dark .search-no-results{color:#929AA4;background:rgba(3,200,247,.035);border-color:rgba(3,200,247,.22)}
+@media(max-width:650px){.portal-search{margin-top:28px}.search-input-wrap input{height:52px;font-size:14px}}

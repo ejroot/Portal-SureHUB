@@ -575,63 +575,52 @@ function criarCard(casa) {
    RENDERIZAR CASAS
 ======================================== */
 
-function renderizarCasas() {
+function normalizarTexto(texto) {
+    return String(texto || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+}
 
+function renderizarCasas(termoBusca = "") {
     containerSem.innerHTML = "";
     containerCom.innerHTML = "";
 
+    const termo = normalizarTexto(termoBusca);
+    const casasFiltradas = casas.filter(casa => !termo || normalizarTexto(casa.nome).includes(termo));
+    const casasSem = casasFiltradas.filter(casa => casa.categoria === "sem-rollover");
+    const casasCom = casasFiltradas.filter(casa => casa.categoria === "com-rollover");
 
-    /* CASAS SEM ROLLOVER */
+    casasSem.forEach(casa => containerSem.appendChild(criarCard(casa)));
+    casasCom.forEach(casa => containerCom.appendChild(criarCard(casa)));
 
-    const casasSem =
-        casas.filter(
-            casa =>
-                casa.categoria === "sem-rollover"
-        );
+    if (termo && casasSem.length === 0) containerSem.innerHTML = '<div class="search-no-results">Nenhuma casa sem rollover encontrada.</div>';
+    if (termo && casasCom.length === 0) containerCom.innerHTML = '<div class="search-no-results">Nenhuma casa com rollover encontrada.</div>';
 
+    counterSem.textContent = `${casasSem.length} ${casasSem.length === 1 ? "casa" : "casas"}`;
+    counterCom.textContent = `${casasCom.length} ${casasCom.length === 1 ? "casa" : "casas"}`;
 
-    /* CASAS COM ROLLOVER */
-
-    const casasCom =
-        casas.filter(
-            casa =>
-                casa.categoria === "com-rollover"
-        );
-
-
-    /* RENDERIZA SEM ROLLOVER */
-
-    casasSem.forEach(casa => {
-
-        containerSem.appendChild(
-            criarCard(casa)
-        );
-
-    });
-
-
-    /* RENDERIZA COM ROLLOVER */
-
-    casasCom.forEach(casa => {
-
-        containerCom.appendChild(
-            criarCard(casa)
-        );
-
-    });
-
-
-    /* ATUALIZA CONTADORES */
-
-    counterSem.textContent =
-        `${casasSem.length} casas`;
-
-
-    counterCom.textContent =
-        `${casasCom.length} casas`;
-
+    const resultado = document.getElementById("resultado-busca");
+    if (resultado) {
+        if (!termo) resultado.textContent = "";
+        else resultado.textContent = casasFiltradas.length === 0 ? "Nenhuma casa encontrada." : `${casasFiltradas.length} ${casasFiltradas.length === 1 ? "casa encontrada" : "casas encontradas"}.`;
+    }
 }
 
+const campoBusca = document.getElementById("busca-casas");
+const botaoLimparBusca = document.getElementById("limpar-busca");
+
+if (campoBusca) {
+    campoBusca.addEventListener("input", () => {
+        renderizarCasas(campoBusca.value);
+        if (botaoLimparBusca) botaoLimparBusca.style.display = campoBusca.value.length ? "block" : "none";
+    });
+}
+if (botaoLimparBusca) {
+    botaoLimparBusca.addEventListener("click", () => {
+        campoBusca.value = "";
+        botaoLimparBusca.style.display = "none";
+        renderizarCasas();
+        campoBusca.focus();
+    });
+}
 
 /* ========================================
    INICIAR PORTAL
