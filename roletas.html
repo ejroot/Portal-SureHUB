@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Roletas Diárias</title>
+<title>Roletas Diárias | SureHUB</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--blue:#0188F6;--cyan:#03C8F7;--deep:#005EF5;--ink:#0B0F14;--muted:#737B85;--bg:#F5F7FA;--card:#fff;--border:#E4E8ED}
@@ -190,6 +190,85 @@ body.dark-mode .roulette-link{
 }
 </style>
 
+
+<style id="surehub-joke-roulette">
+.joke-roulette{
+    position:relative;
+    appearance:none;
+    padding:0;
+    cursor:pointer;
+    overflow:visible;
+    outline:none;
+}
+.joke-roulette .roulette-wheel{
+    animation:none !important;
+    display:block;
+    transition:none;
+}
+.joke-roulette:hover .roulette-wheel{
+    animation:none !important;
+}
+.joke-roulette.is-spinning .roulette-wheel{
+    animation:jokeSpin 1.9s cubic-bezier(.15,.72,.18,1) forwards !important;
+}
+@keyframes jokeSpin{
+    0%{transform:rotate(0deg)}
+    100%{transform:rotate(1800deg)}
+}
+.roulette-pointer{
+    position:absolute;
+    z-index:5;
+    top:-8px;
+    left:50%;
+    transform:translateX(-50%);
+    width:0;height:0;
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+    border-top:10px solid #005EF5;
+    filter:drop-shadow(0 2px 2px rgba(0,0,0,.18));
+}
+.joke-roulette .roulette-wheel::after{display:none}
+.roulette-result{
+    position:absolute;
+    z-index:20;
+    left:54px;
+    top:50%;
+    transform:translateY(-50%) scale(.92);
+    width:max-content;
+    max-width:145px;
+    padding:6px 9px;
+    border-radius:9px;
+    background:#0B0F14;
+    color:#fff;
+    font-size:9px;
+    font-weight:900;
+    line-height:1.15;
+    opacity:0;
+    pointer-events:none;
+    transition:.2s ease;
+    box-shadow:0 5px 15px rgba(0,0,0,.18);
+}
+.joke-roulette.show-result .roulette-result{
+    opacity:1;
+    transform:translateY(-50%) scale(1);
+}
+body.dark-mode .roulette-result{
+    background:#F5F8FC;
+    color:#07111F;
+}
+@media(max-width:540px){
+    .roulette-result{
+        left:50px;
+        max-width:120px;
+    }
+}
+@media(prefers-reduced-motion:reduce){
+    .joke-roulette.is-spinning .roulette-wheel{
+        animation:none !important;
+    }
+}
+</style>
+
 </head>
 <body>
 <header>
@@ -223,11 +302,13 @@ body.dark-mode .roulette-link{
  <section id="grid" class="grid">
  
 <article class="house-card" data-name="betpix365">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>BetPix365</h2>
     <div class="house-actions">
@@ -240,11 +321,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="betmgm">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>BetMGM</h2>
     <div class="house-actions">
@@ -257,11 +340,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="aposta ganha">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Aposta Ganha</h2>
     <div class="house-actions">
@@ -274,11 +359,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="superbet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>SuperBet</h2>
     <div class="house-actions">
@@ -291,11 +378,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="novibet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Novibet</h2>
     <div class="house-actions">
@@ -308,11 +397,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="betgorillas">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Betgorillas</h2>
     <div class="house-actions">
@@ -325,11 +416,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="cassino bet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Cassino BET</h2>
     <div class="house-actions">
@@ -342,11 +435,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="vera bet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Vera Bet</h2>
     <div class="house-actions">
@@ -359,11 +454,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="luva.bet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Luva.Bet</h2>
     <div class="house-actions">
@@ -376,11 +473,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="betnacional">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Betnacional</h2>
     <div class="house-actions">
@@ -393,11 +492,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="brbet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>BRBET</h2>
     <div class="house-actions">
@@ -410,11 +511,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="betvip">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Betvip</h2>
     <div class="house-actions">
@@ -427,11 +530,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="galera bet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Galera bet</h2>
     <div class="house-actions">
@@ -444,11 +549,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="seguro.bet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Seguro.bet</h2>
     <div class="house-actions">
@@ -461,11 +568,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="betano">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Betano</h2>
     <div class="house-actions">
@@ -478,11 +587,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="bet7k">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Bet7K</h2>
     <div class="house-actions">
@@ -495,11 +606,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="betesporte">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>BETesporte</h2>
     <div class="house-actions">
@@ -512,11 +625,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="pixbet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>PixBet</h2>
     <div class="house-actions">
@@ -529,11 +644,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="ganhei.bet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Ganhei.bet</h2>
     <div class="house-actions">
@@ -546,11 +663,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="b1 bet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>B1 BET</h2>
     <div class="house-actions">
@@ -563,11 +682,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="vbet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Vbet</h2>
     <div class="house-actions">
@@ -580,11 +701,13 @@ body.dark-mode .roulette-link{
 </article>
 
 <article class="house-card" data-name="esportiva bet">
-  <div class="house-logo roulette-wrap" aria-hidden="true">
-      <div class="roulette-wheel">
+  <button class="house-logo roulette-wrap joke-roulette" type="button" aria-label="Girar roleta">
+      <span class="roulette-pointer" aria-hidden="true"></span>
+      <span class="roulette-wheel" aria-hidden="true">
         <span class="roulette-center"></span>
-      </div>
-    </div>
+      </span>
+      <span class="roulette-result" aria-live="polite">Tente novamente 😅</span>
+    </button>
   <div class="house-info">
     <h2>Esportiva Bet</h2>
     <div class="house-actions">
@@ -643,6 +766,43 @@ document.querySelectorAll('.roulette-link[href="#"]').forEach(link=>{
     alert('Adicione o link direto da roleta desta casa no atributo href do botão.');
   });
 });
+</script>
+
+
+<script id="surehub-joke-roulette-js">
+(() => {
+  const roulettes = document.querySelectorAll('.joke-roulette');
+  roulettes.forEach(btn => {
+    let timer = null;
+    btn.addEventListener('click', () => {
+      if (btn.classList.contains('is-spinning')) return;
+
+      clearTimeout(timer);
+      btn.classList.remove('show-result');
+      btn.classList.remove('is-spinning');
+
+      // Reinicia a animação a cada clique.
+      void btn.offsetWidth;
+      btn.classList.add('is-spinning');
+
+      const reduced = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const delay = reduced ? 120 : 1900;
+
+      timer = setTimeout(() => {
+        btn.classList.remove('is-spinning');
+        btn.classList.add('show-result');
+
+        // A brincadeira é proposital: o resultado é sempre o mesmo.
+        const result = btn.querySelector('.roulette-result');
+        if (result) result.textContent = 'Tente novamente 😅';
+
+        setTimeout(() => btn.classList.remove('show-result'), 2200);
+      }, delay);
+    });
+  });
+})();
 </script>
 
 </body>
