@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roletas Diárias</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#0188F6;--cyan:#03C8F7;--deep:#005EF5;--ink:#0B0F14;--muted:#737B85;--bg:#F5F7FA;--card:#fff;--border:#E4E8ED}
+body{font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top right,rgba(3,200,247,.10),transparent 30%),radial-gradient(circle at top left,rgba(1,136,246,.08),transparent 30%),var(--bg);color:var(--ink);min-height:100vh}
+header{background:rgba(11,15,20,.97);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 4px 18px rgba(0,0,0,.16)}
+.container{width:min(1120px,calc(100% - 30px));margin:auto}
+.header{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:21px;font-weight:900}
+.logo-slot{width:42px;height:42px;border:1px dashed rgba(255,255,255,.28);border-radius:10px;display:grid;place-items:center;color:#AEB6C0;font-size:9px;text-align:center}
+.sure{color:#fff}.hub{color:var(--blue)}
+.back{color:#AEB6C0;text-decoration:none;font-size:14px}.back:hover{color:var(--cyan)}
+.hero{text-align:center;padding:48px 0 28px}
+.hero-badge{display:inline-flex;padding:7px 13px;border:1px solid rgba(1,136,246,.25);background:rgba(1,136,246,.09);color:var(--deep);border-radius:999px;font-size:12px;font-weight:800;margin-bottom:15px}
+.hero h1{font-size:clamp(30px,5vw,48px);margin-bottom:12px}.hero h1 span{color:var(--blue)}
+.hero p{max-width:720px;margin:auto;color:var(--muted);line-height:1.6}
+.toolbar{display:flex;gap:12px;justify-content:space-between;align-items:center;margin:10px 0 22px}
+.search{flex:1;max-width:520px;min-height:46px;border:1px solid var(--border);border-radius:12px;padding:0 14px;background:var(--card);color:var(--ink);outline:none}
+.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(1,136,246,.12)}
+.counter{font-size:13px;color:var(--muted);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-bottom:60px}
+.house-card{display:flex;align-items:center;gap:13px;position:relative;background:var(--card);border:1px solid var(--border);border-radius:17px;padding:16px;box-shadow:0 8px 28px rgba(11,15,20,.06);transition:.2s}
+.house-card:hover{transform:translateY(-2px);border-color:rgba(1,136,246,.35);box-shadow:0 10px 30px rgba(1,136,246,.10)}
+.house-logo{width:48px;height:48px;flex:0 0 48px;border-radius:13px;background:linear-gradient(135deg,rgba(1,136,246,.13),rgba(3,200,247,.09));border:1px solid rgba(1,136,246,.16);display:grid;place-items:center;color:var(--deep);font-weight:900}
+.house-info{min-width:0}.house-info h2{font-size:15px;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.daily-badge{display:inline-flex;font-size:10px;font-weight:800;color:var(--blue);background:rgba(1,136,246,.08);border-radius:999px;padding:5px 8px}
+.status-dot{width:8px;height:8px;border-radius:50%;background:#20C997;margin-left:auto;box-shadow:0 0 0 4px rgba(32,201,151,.10)}
+.empty{display:none;text-align:center;color:var(--muted);padding:30px 0 60px}
+footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.grid{grid-template-columns:1fr}.hero{padding-top:34px}.toolbar{align-items:stretch;flex-direction:column}.search{max-width:none}}
+</style>
+
+<style id="surehub-roulette-dark">
+/* Roleta animada ao lado de cada casa */
+.roulette-wrap{
+    background:transparent !important;
+    border:0 !important;
+    overflow:visible;
+}
+.roulette-wheel{
+    position:relative;
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    border:3px solid #0B0F14;
+    background:
+      conic-gradient(
+        #0188F6 0deg 45deg,
+        #0B0F14 45deg 90deg,
+        #03C8F7 90deg 135deg,
+        #0B0F14 135deg 180deg,
+        #0188F6 180deg 225deg,
+        #0B0F14 225deg 270deg,
+        #03C8F7 270deg 315deg,
+        #0B0F14 315deg 360deg
+      );
+    box-shadow:inset 0 0 0 3px rgba(255,255,255,.85),0 3px 10px rgba(1,136,246,.18);
+    animation:surehubRoulette 3.2s linear infinite;
+}
+.roulette-wheel::before{
+    content:"";
+    position:absolute;
+    inset:7px;
+    border-radius:50%;
+    border:2px dashed rgba(255,255,255,.9);
+}
+.roulette-wheel::after{
+    content:"";
+    position:absolute;
+    top:-7px;
+    left:50%;
+    transform:translateX(-50%);
+    width:0;height:0;
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-top:9px solid #005EF5;
+}
+.roulette-center{
+    position:absolute;
+    width:11px;height:11px;
+    border-radius:50%;
+    background:#fff;
+    border:3px solid #0188F6;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    z-index:2;
+}
+.house-card:hover .roulette-wheel{animation-duration:.75s}
+@keyframes surehubRoulette{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){
+    .roulette-wheel{animation:none}
+    .house-card:hover .roulette-wheel{animation:none}
+}
+
+/* Botão de modo noturno */
+.header-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{
+    display:inline-flex;align-items:center;gap:8px;
+    min-height:42px;padding:5px 7px 5px 11px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:999px;background:rgba(255,255,255,.07);
+    color:#fff;font-weight:800;font-size:12px;cursor:pointer;
+    transition:.25s ease;
+}
+.theme-toggle:hover{background:rgba(255,255,255,.12)}
+.theme-track{
+    position:relative;width:48px;height:27px;border-radius:999px;
+    background:#273443;transition:.25s ease;
+}
+.theme-thumb{
+    position:absolute;top:3px;left:3px;width:21px;height:21px;
+    border-radius:50%;background:#fff;color:#17202a;
+    display:grid;place-items:center;font-size:12px;
+    transition:.25s ease;
+}
+body.dark-mode .theme-track{background:linear-gradient(135deg,#0188F6,#005EF5)}
+body.dark-mode .theme-thumb{transform:translateX(21px);background:#07111F;color:#facc15}
+
+/* Tema escuro SureHUB */
+body.dark-mode{
+    --ink:#F5F8FC;
+    --muted:#AEB9C7;
+    --bg:#07111F;
+    --card:#0D1928;
+    --border:#223247;
+    background:
+      radial-gradient(circle at top right,rgba(3,200,247,.10),transparent 30%),
+      radial-gradient(circle at top left,rgba(1,136,246,.12),transparent 30%),
+      #07111F;
+    color:#F5F8FC;
+}
+body.dark-mode .hero-badge{color:#54D9FA;background:rgba(1,136,246,.12)}
+body.dark-mode .search{background:#091727;color:#fff;border-color:#26384E}
+body.dark-mode .house-card{background:#0D1928;border-color:#223247;box-shadow:0 8px 28px rgba(0,0,0,.22)}
+body.dark-mode .house-info h2{color:#F5F8FC}
+body.dark-mode .daily-badge{color:#54D9FA;background:rgba(1,136,246,.13)}
+body.dark-mode footer{border-color:#223247}
+body.dark-mode .roulette-wheel{border-color:#DDE7F2;box-shadow:inset 0 0 0 3px rgba(7,17,31,.75),0 3px 12px rgba(3,200,247,.18)}
+
+@media(max-width:620px){
+    .header-actions{gap:7px}
+    .theme-label{display:none}
+    .theme-toggle{padding-left:6px}
+    .back{font-size:12px}
+}
+</style>
+
+
+<style id="surehub-roulette-links">
+.house-actions{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    flex-wrap:wrap;
+}
+.roulette-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:27px;
+    padding:5px 10px;
+    border-radius:999px;
+    background:linear-gradient(135deg,#0188F6,#005EF5);
+    color:#fff;
+    text-decoration:none;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.1px;
+    box-shadow:0 3px 9px rgba(1,136,246,.18);
+    transition:transform .18s ease,box-shadow .18s ease,filter .18s ease;
+}
+.roulette-link:hover{
+    transform:translateY(-1px);
+    filter:brightness(1.07);
+    box-shadow:0 5px 13px rgba(1,136,246,.25);
+}
+.roulette-link:focus-visible{
+    outline:3px solid rgba(3,200,247,.30);
+    outline-offset:2px;
+}
+body.dark-mode .roulette-link{
+    color:#fff;
+    box-shadow:0 4px 12px rgba(3,200,247,.14);
+}
+</style>
+
+</head>
+<body>
+<header>
+ <div class="container header">
+  <a class="logo" href="index.html">
+   <div class="logo-slot">SUA<br>LOGO</div>
+   <span><span class="sure">Sure</span><span class="hub">HUB</span></span>
+  </a>
+  <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo noturno" aria-pressed="false">
+        <span class="theme-label">Modo noturno</span>
+        <span class="theme-track" aria-hidden="true"><span class="theme-thumb">☀</span></span>
+      </button>
+      <a class="back" href="index.html">← Voltar ao portal</a>
+    </div>
+ </div>
+</header>
+
+<main class="container">
+ <section class="hero">
+  <span class="hero-badge">SUREHUB • FERRAMENTAS</span>
+  <h1>Casas com <span>Roletas Diárias</span></h1>
+  <p>Lista de casas cadastradas no portal que possuem roletas diárias. Use a busca para localizar rapidamente uma casa.</p>
+ </section>
+
+ <div class="toolbar">
+  <input id="search" class="search" type="search" placeholder="Buscar casa..." autocomplete="off">
+  <div id="counter" class="counter">22 casas</div>
+ </div>
+
+ <section id="grid" class="grid">
+ 
+<article class="house-card" data-name="betpix365">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>BetPix365</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="betmgm">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>BetMGM</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="aposta ganha">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Aposta Ganha</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="superbet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>SuperBet</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="novibet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Novibet</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="betgorillas">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Betgorillas</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="cassino bet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Cassino BET</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="vera bet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Vera Bet</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="luva.bet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Luva.Bet</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="betnacional">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Betnacional</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="brbet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>BRBET</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="betvip">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Betvip</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="galera bet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Galera bet</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="seguro.bet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Seguro.bet</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="betano">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Betano</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="bet7k">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Bet7K</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="betesporte">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>BETesporte</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="pixbet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>PixBet</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="ganhei.bet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Ganhei.bet</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="b1 bet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>B1 BET</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="vbet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Vbet</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+
+<article class="house-card" data-name="esportiva bet">
+  <div class="house-logo roulette-wrap" aria-hidden="true">
+      <div class="roulette-wheel">
+        <span class="roulette-center"></span>
+      </div>
+    </div>
+  <div class="house-info">
+    <h2>Esportiva Bet</h2>
+    <div class="house-actions">
+      <span class="daily-badge">Roleta diária</span>
+      <!-- EDITE O href ABAIXO COM O LINK DIRETO DA ROLETA DESTA CASA -->
+      <a class="roulette-link" href="#" target="_blank" rel="noopener noreferrer">Acesse aqui</a>
+    </div>
+  </div>
+  <div class="status-dot" title="Roleta diária"></div>
+</article>
+ </section>
+ <div id="empty" class="empty">Nenhuma casa encontrada.</div>
+</main>
+
+<footer>© SureHUB — Arbitragem • Tecnologia • Resultados</footer>
+
+<script>
+const search=document.getElementById('search');
+const cards=[...document.querySelectorAll('.house-card')];
+const counter=document.getElementById('counter');
+const empty=document.getElementById('empty');
+search.addEventListener('input',()=>{
+ const q=search.value.trim().toLowerCase();
+ let visible=0;
+ cards.forEach(card=>{
+   const show=card.dataset.name.includes(q);
+   card.style.display=show?'flex':'none';
+   if(show) visible++;
+ });
+ counter.textContent=visible+' '+(visible===1?'casa':'casas');
+ empty.style.display=visible?'none':'block';
+});
+</script>
+
+<script id="surehub-theme-js">
+(() => {
+  const btn=document.getElementById('themeToggle');
+  if(!btn) return;
+  const label=btn.querySelector('.theme-label');
+  const thumb=btn.querySelector('.theme-thumb');
+  btn.addEventListener('click',()=>{
+    const dark=document.body.classList.toggle('dark-mode');
+    btn.setAttribute('aria-pressed',String(dark));
+    btn.setAttribute('aria-label',dark?'Desativar modo noturno':'Ativar modo noturno');
+    if(label) label.textContent=dark?'Modo claro':'Modo noturno';
+    if(thumb) thumb.textContent=dark?'☾':'☀';
+  });
+})();
+</script>
+
+
+<script id="surehub-placeholder-links">
+document.querySelectorAll('.roulette-link[href="#"]').forEach(link=>{
+  link.addEventListener('click',event=>{
+    event.preventDefault();
+    alert('Adicione o link direto da roleta desta casa no atributo href do botão.');
+  });
+});
+</script>
+
+</body>
+</html>
