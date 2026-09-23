@@ -34,6 +34,15 @@ header{background:rgba(11,15,20,.97);border-bottom:1px solid rgba(255,255,255,.0
 footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;color:var(--muted);font-size:12px}
 @media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:540px){.grid{grid-template-columns:1fr}.hero{padding-top:34px}.toolbar{align-items:stretch;flex-direction:column}.search{max-width:none}}
+
+/* Checklist diário: propositalmente não é salvo. Ao recarregar a página, volta desmarcado. */
+.daily-check{margin-left:auto;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 auto}
+.daily-check input{position:absolute;opacity:0;pointer-events:none}
+.daily-check-box{width:25px;height:25px;border:2px solid var(--blue);border-radius:7px;display:grid;place-items:center;background:var(--card);transition:.2s;font-size:16px;font-weight:900;color:#fff}
+.daily-check input:checked + .daily-check-box{background:linear-gradient(135deg,var(--blue),var(--deep));border-color:var(--deep)}
+.daily-check input:checked + .daily-check-box::after{content:"✓"}
+.house-card.checked{opacity:.64;border-color:rgba(32,201,151,.45)}
+.house-card.checked .house-info h2{text-decoration:line-through;text-decoration-thickness:1px}
 </style>
 
 <style id="surehub-roulette-dark">
@@ -739,6 +748,22 @@ search.addEventListener('input',()=>{
  });
  counter.textContent=visible+' '+(visible===1?'casa':'casas');
  empty.style.display=visible?'none':'block';
+});
+</script>
+
+<script id="surehub-daily-checklist">
+/* Cria uma caixa de checklist em cada casa. Não usa localStorage/sessionStorage,
+   então F5/atualização limpa todas as marcações automaticamente. */
+document.querySelectorAll('.house-card').forEach((card,index)=>{
+  const label=document.createElement('label');
+  label.className='daily-check';
+  label.title='Marcar roleta como conferida';
+  label.innerHTML=`<input type="checkbox" aria-label="Marcar ${card.querySelector('h2')?.textContent || 'casa'} como conferida"><span class="daily-check-box" aria-hidden="true"></span>`;
+  const oldDot=card.querySelector('.status-dot');
+  if(oldDot) oldDot.replaceWith(label); else card.appendChild(label);
+  const input=label.querySelector('input');
+  input.checked=false;
+  input.addEventListener('change',()=>card.classList.toggle('checked',input.checked));
 });
 </script>
 

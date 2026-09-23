@@ -1,0 +1,2704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" href="favicon.png" type="image/png">
+    <title>Calculadora Aumentada | SureHUB</title>
+
+    <meta
+        name="description"
+        content="Calculadora Aumentada com Dutching, percentual de aumento da odd, distribuição de stakes, retorno, lucro e ROI."
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+:root {
+    --preto: #000000;
+    --preto-suave: #0B0F14;
+    --preto-card: #111820;
+
+    --azul: #0188F6;
+    --azul-claro: #03C8F7;
+    --azul-escuro: #005EF5;
+
+    --branco: #FFFFFF;
+
+    --cinza: #AEB6C0;
+    --cinza-texto: #737B85;
+
+    --fundo: #F5F7FA;
+    --borda: #E4E8ED;
+
+    /* Compatibilidade com os componentes originais da calculadora */
+    --bg: var(--fundo);
+    --text: var(--preto-suave);
+    --muted: var(--cinza-texto);
+    --primary: var(--azul);
+    --border: var(--borda);
+    --radius: 18px;
+}
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top right, rgba(34,197,94,0.10), transparent 30%),
+                radial-gradient(circle at top left, rgba(59,130,246,0.08), transparent 30%),
+                var(--bg);
+
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1150px, calc(100% - 30px));
+            margin: auto;
+        }
+
+        /* HEADER */
+
+        header {
+            border-bottom: 1px solid var(--border);
+            background: rgba(7,17,31,0.92);
+        }
+
+        .header-content {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+       .logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    display: block;
+}
+        .back-link {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: .2s;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 48px 0 30px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            padding: 7px 13px;
+            border: 1px solid rgba(34,197,94,.25);
+            background: rgba(34,197,94,.08);
+            color: #86efac;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 5vw, 48px);
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: auto;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* LAYOUT */
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 20px;
+            padding-bottom: 50px;
+        }
+
+        .card {
+            background: linear-gradient(
+                145deg,
+                rgba(16,31,51,.96),
+                rgba(11,23,40,.96)
+            );
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px;
+        }
+
+        .card-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card-title h2 {
+            font-size: 18px;
+        }
+
+        .card-title p {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        /* INPUTS */
+
+        .field {
+            margin-bottom: 17px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 7px;
+            color: #dbeafe;
+        }
+
+        input,
+        select {
+            width: 100%;
+            min-height: 46px;
+            border-radius: 11px;
+            border: 1px solid var(--border);
+            background: #091727;
+            color: white;
+            padding: 0 13px;
+            outline: none;
+            transition: .2s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(34,197,94,.10);
+        }
+
+        .main-stake {
+            font-size: 25px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .results-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .result-row {
+            padding: 15px;
+            border-radius: 14px;
+            background: rgba(255,255,255,.025);
+            border: 1px solid var(--border);
+        }
+
+        .result-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .result-number {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-weight: 800;
+        }
+
+        .number-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(34,197,94,.12);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .remove-btn {
+            border: 0;
+            background: rgba(239,68,68,.10);
+            color: #fca5a5;
+            width: 32px;
+            height: 32px;
+            border-radius: 9px;
+            cursor: pointer;
+        }
+
+        .result-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .commission-field {
+            display: none;
+        }
+
+        .result-row.exchange .commission-field {
+            display: block;
+        }
+
+        .calculated-stake {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 8px;
+            padding: 9px 11px;
+            border: 1px solid rgba(1, 136, 246, 0.18);
+            border-radius: 10px;
+            background: rgba(1, 136, 246, 0.06);
+            color: var(--cinza-texto);
+            font-size: 12px;
+        }
+
+        .calculated-stake strong {
+            color: var(--azul-escuro);
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 17px;
+        }
+
+        button {
+            border: 0;
+            cursor: pointer;
+        }
+
+        .btn {
+            min-height: 46px;
+            border-radius: 11px;
+            padding: 0 17px;
+            font-weight: 800;
+            transition: .2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #031009;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background: #4ade80;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,.06);
+            color: white;
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,.10);
+        }
+
+        /* SUMMARY */
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 11px;
+        }
+
+        .summary-box {
+            border-radius: 14px;
+            padding: 17px;
+            background: rgba(255,255,255,.035);
+            border: 1px solid var(--border);
+        }
+
+        .summary-box.full {
+            grid-column: 1 / -1;
+        }
+
+        .summary-label {
+            color: var(--muted);
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .summary-value {
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .positive {
+            color: #4ade80;
+        }
+
+        .negative {
+            color: #f87171;
+        }
+
+        .neutral {
+            color: #facc15;
+        }
+
+        .distribution {
+            margin-top: 20px;
+        }
+
+        .distribution-title {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .distribution-row {
+            display: grid;
+            grid-template-columns: 90px 1fr 65px;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 9px;
+            font-size: 12px;
+        }
+
+        .bar {
+            height: 8px;
+            border-radius: 99px;
+            background: #07111f;
+            overflow: hidden;
+        }
+
+        .bar span {
+            display: block;
+            height: 100%;
+            background: var(--primary);
+            border-radius: inherit;
+        }
+
+        /* STATUS */
+
+        .status {
+            margin-top: 18px;
+            padding: 16px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,.03);
+        }
+
+        .status-title {
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .status-text {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .status.profit {
+            border-color: rgba(34,197,94,.25);
+            background: rgba(34,197,94,.06);
+        }
+
+        .status.loss {
+            border-color: rgba(239,68,68,.25);
+            background: rgba(239,68,68,.06);
+        }
+
+        /* TABLE */
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 11px 8px;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+        }
+
+        th {
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        td {
+            color: #e2e8f0;
+        }
+
+        /* INFO */
+
+        .info {
+            margin-top: 20px;
+            padding: 17px;
+            border-radius: 14px;
+            background: rgba(59,130,246,.06);
+            border: 1px solid rgba(59,130,246,.15);
+        }
+
+        .info strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .info p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 25px 0;
+            color: var(--muted);
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .container {
+                width: min(100% - 20px, 1150px);
+            }
+
+            .header-content {
+                min-height: 62px;
+            }
+
+            .hero {
+                padding-top: 32px;
+            }
+
+            .card {
+                padding: 16px;
+            }
+
+            .result-fields {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-box.full {
+                grid-column: auto;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .distribution-row {
+                grid-template-columns: 72px 1fr 52px;
+            }
+        }
+        /* Tema oficial SureHUB — sobrescreve integralmente o tema anterior */
+        :root {
+            --verde: #20C997;
+            --vermelho: #FF5A67;
+            --amarelo: #E5A400;
+            --raio: 18px;
+            --sombra: 0 8px 28px rgba(11, 15, 20, 0.07);
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top right, rgba(3, 200, 247, 0.10), transparent 30%),
+                radial-gradient(circle at top left, rgba(1, 136, 246, 0.08), transparent 30%),
+                var(--fundo);
+            color: var(--preto-suave);
+        }
+
+        header {
+            background: rgba(11, 15, 20, 0.97);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
+        }
+
+        .logo,
+        .logo span {
+            color: var(--branco);
+        }
+
+        .back-link {
+            color: var(--cinza);
+        }
+
+        .back-link:hover {
+            color: var(--azul-claro);
+        }
+
+        .hero-badge {
+            border-color: rgba(1, 136, 246, 0.25);
+            background: rgba(1, 136, 246, 0.09);
+            color: var(--azul-escuro);
+        }
+
+        .hero h1,
+        .card-title h2,
+        .status-title,
+        .result-number {
+            color: var(--preto-suave);
+        }
+
+        .hero h1 span {
+            color: var(--azul);
+        }
+
+        .hero p,
+        .card-title p,
+        .summary-label,
+        .distribution-title,
+        .status-text,
+        .info p,
+        footer {
+            color: var(--cinza-texto);
+        }
+
+        .card {
+            background: var(--branco);
+            border: 1px solid var(--borda);
+            border-radius: var(--raio);
+            box-shadow: var(--sombra);
+        }
+
+        label {
+            color: var(--preto-suave);
+        }
+
+        input,
+        select {
+            background: var(--branco);
+            border: 1px solid var(--borda);
+            color: var(--preto-suave);
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--azul);
+            box-shadow: 0 0 0 3px rgba(1, 136, 246, 0.12);
+        }
+
+        .main-stake {
+            color: var(--preto-suave);
+        }
+
+        .result-row,
+        .summary-box,
+        .status {
+            background: #FAFBFC;
+            border: 1px solid var(--borda);
+        }
+
+        .number-circle {
+            background: rgba(1, 136, 246, 0.11);
+            color: var(--azul);
+        }
+
+        .remove-btn {
+            background: rgba(255, 90, 103, 0.11);
+            color: var(--vermelho);
+            transition: 0.2s;
+        }
+
+        .remove-btn:hover {
+            background: var(--vermelho);
+            color: var(--branco);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--azul), var(--azul-escuro));
+            color: var(--branco);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--azul-claro), var(--azul));
+        }
+
+        .btn-secondary {
+            background: var(--branco);
+            color: var(--azul);
+            border-color: var(--azul);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(1, 136, 246, 0.07);
+        }
+
+        .summary-value {
+            color: var(--azul);
+        }
+
+        .summary-value.positive {
+            color: var(--verde);
+        }
+
+        .summary-value.negative {
+            color: var(--vermelho);
+        }
+
+        .summary-value.neutral {
+            color: var(--amarelo);
+        }
+
+        .bar {
+            background: var(--borda);
+        }
+
+        .bar span {
+            background: linear-gradient(90deg, var(--azul-escuro), var(--azul), var(--azul-claro));
+        }
+
+        .status.profit {
+            border-color: rgba(32, 201, 151, 0.35);
+            background: rgba(32, 201, 151, 0.08);
+        }
+
+        .status.loss {
+            border-color: rgba(255, 90, 103, 0.35);
+            background: rgba(255, 90, 103, 0.08);
+        }
+
+        table {
+            background: var(--branco);
+            color: var(--preto-suave);
+        }
+
+        th,
+        td {
+            border-bottom: 1px solid var(--borda);
+        }
+
+        th,
+        td {
+            color: var(--preto-suave);
+        }
+
+        tbody tr:hover {
+            background: rgba(1, 136, 246, 0.04);
+        }
+
+        .info {
+            background: rgba(1, 136, 246, 0.06);
+            border-color: rgba(1, 136, 246, 0.18);
+        }
+
+        .info strong {
+            color: var(--azul-escuro);
+        }
+
+        footer {
+            border-top: 1px solid var(--borda);
+        }
+
+        /* Stake calculada ao lado da odd */
+        .result-fields {
+            grid-template-columns: minmax(130px, 1fr) minmax(110px, 1fr) minmax(145px, 1fr);
+            align-items: start;
+        }
+
+        .stake-field label {
+            color: var(--azul-escuro);
+        }
+
+        .calculated-stake {
+            min-height: 46px;
+            margin-top: 0;
+            padding: 0 13px;
+            background: rgba(1, 136, 246, 0.08);
+            border-color: rgba(1, 136, 246, 0.24);
+        }
+
+        .calculated-stake strong {
+            font-size: 16px;
+        }
+
+        .commission-field {
+            grid-column: 1 / -1;
+            max-width: calc((100% - 20px) / 3);
+        }
+
+        /* Calculadora tradicional */
+        .standard-calculator-section {
+            padding: 0 0 60px;
+        }
+
+        .standard-calculator-wrap {
+            max-width: 430px;
+            margin: 0 auto;
+        }
+
+        .standard-calculator-heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .standard-calculator-heading h2 {
+            color: var(--preto-suave);
+            font-size: clamp(24px, 4vw, 34px);
+            margin-bottom: 7px;
+        }
+
+        .standard-calculator-heading h2 span {
+            color: var(--azul);
+        }
+
+        .standard-calculator-heading p {
+            color: var(--cinza-texto);
+            line-height: 1.5;
+        }
+
+        .standard-calculator {
+            padding: 20px;
+            background: var(--branco);
+            border: 1px solid var(--borda);
+            border-radius: var(--raio);
+            box-shadow: var(--sombra);
+        }
+
+        .standard-display {
+            width: 100%;
+            min-height: 92px;
+            margin-bottom: 14px;
+            padding: 18px;
+            border: 1px solid var(--borda);
+            border-radius: 14px;
+            background: var(--preto-suave);
+            color: var(--branco);
+            text-align: right;
+            line-height: 1.25;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .standard-expression {
+            min-height: 24px;
+            margin-bottom: 7px;
+            color: var(--cinza);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .standard-current-value {
+            min-height: 48px;
+            color: var(--branco);
+            font-size: clamp(28px, 7vw, 38px);
+            font-weight: 800;
+        }
+
+        .standard-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .calc-key {
+            min-height: 58px;
+            border-radius: 13px;
+            background: #F1F4F7;
+            color: var(--preto-suave);
+            font-size: 18px;
+            font-weight: 800;
+            transition: transform .15s, background .15s;
+        }
+
+        .calc-key:hover {
+            background: #E7ECF1;
+            transform: translateY(-1px);
+        }
+
+        .calc-key.operator {
+            background: rgba(1, 136, 246, 0.10);
+            color: var(--azul-escuro);
+        }
+
+        .calc-key.clear {
+            background: rgba(255, 90, 103, 0.11);
+            color: var(--vermelho);
+        }
+
+        .calc-key.equals {
+            background: linear-gradient(135deg, var(--azul), var(--azul-escuro));
+            color: var(--branco);
+        }
+
+        .calc-key.equals:hover {
+            background: linear-gradient(135deg, var(--azul-claro), var(--azul));
+        }
+
+        @media (max-width: 620px) {
+            .result-fields {
+                grid-template-columns: 1fr;
+            }
+
+            .commission-field {
+                grid-column: auto;
+                max-width: none;
+            }
+
+            .standard-calculator-section {
+                padding-bottom: 40px;
+            }
+
+            .standard-calculator {
+                padding: 14px;
+            }
+
+            .calc-key {
+                min-height: 54px;
+            }
+        }
+    </style>
+
+<style id="surehub-dark-mode-and-brand">
+/* Logo oficial no cabeçalho */
+.surehub-logo-mark{
+    width:44px;
+    height:44px;
+    object-fit:cover;
+    object-position:center;
+    border-radius:10px;
+    display:block;
+}
+.brand-name{display:inline-flex;align-items:baseline;font-weight:900;letter-spacing:-.5px}
+.logo .brand-sure{color:#FFFFFF !important}
+.logo .brand-hub{color:#0188F6 !important}
+
+/* Ações do cabeçalho */
+.header-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{
+    display:inline-flex;align-items:center;gap:9px;
+    min-height:42px;padding:5px 7px 5px 12px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:999px;background:rgba(255,255,255,.07);
+    color:#fff;font-weight:800;font-size:13px;cursor:pointer;
+    transition:.25s ease;
+}
+.theme-toggle:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
+.theme-toggle-track{
+    position:relative;width:50px;height:28px;border-radius:999px;
+    background:#273443;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+    transition:.25s ease;
+}
+.theme-toggle-thumb{
+    position:absolute;top:3px;left:3px;width:22px;height:22px;
+    display:flex;align-items:center;justify-content:center;border-radius:50%;
+    background:#fff;color:#17202a;font-size:13px;transition:.25s ease;
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+body.dark-mode .theme-toggle-track{background:linear-gradient(135deg,#0188F6,#005EF5)}
+body.dark-mode .theme-toggle-thumb{transform:translateX(22px);background:#07111F;color:#facc15}
+
+/* Tema noturno */
+body.dark-mode{
+    --fundo:#07111F;
+    --bg:#07111F;
+    --branco:#0D1928;
+    --borda:#223247;
+    --border:#223247;
+    --preto-suave:#F5F8FC;
+    --text:#F5F8FC;
+    --cinza-texto:#AEB9C7;
+    --muted:#AEB9C7;
+    background:
+      radial-gradient(circle at top right,rgba(3,200,247,.10),transparent 30%),
+      radial-gradient(circle at top left,rgba(1,136,246,.12),transparent 30%),
+      #07111F;
+    color:#F5F8FC;
+}
+body.dark-mode .card,
+body.dark-mode .standard-calculator{
+    background:#0D1928;border-color:#223247;box-shadow:0 8px 28px rgba(0,0,0,.24)
+}
+body.dark-mode .hero h1,
+body.dark-mode .card-title h2,
+body.dark-mode .status-title,
+body.dark-mode .result-number,
+body.dark-mode label,
+body.dark-mode .main-stake,
+body.dark-mode .standard-calculator-heading h2{color:#F5F8FC}
+body.dark-mode .hero p,
+body.dark-mode .card-title p,
+body.dark-mode .summary-label,
+body.dark-mode .distribution-title,
+body.dark-mode .status-text,
+body.dark-mode .info p,
+body.dark-mode footer,
+body.dark-mode .standard-calculator-heading p{color:#AEB9C7}
+body.dark-mode input,
+body.dark-mode select{background:#091727;border-color:#26384E;color:#fff}
+body.dark-mode .result-row,
+body.dark-mode .summary-box,
+body.dark-mode .status{background:#101E2E;border-color:#26384E}
+body.dark-mode table{background:#0D1928;color:#F5F8FC}
+body.dark-mode th,
+body.dark-mode td{color:#EAF0F7;border-color:#26384E}
+body.dark-mode tbody tr:hover{background:rgba(1,136,246,.08)}
+body.dark-mode .info{background:rgba(1,136,246,.08);border-color:rgba(3,200,247,.22)}
+body.dark-mode .info strong{color:#03C8F7}
+body.dark-mode .calculated-stake{background:rgba(1,136,246,.12);border-color:rgba(3,200,247,.24);color:#AEB9C7}
+body.dark-mode .calculated-stake strong,
+body.dark-mode .stake-field label{color:#54D9FA}
+body.dark-mode .btn-secondary{background:#101E2E;color:#54D9FA;border-color:#0188F6}
+body.dark-mode .btn-secondary:hover{background:#15283D}
+body.dark-mode .bar{background:#26384E}
+body.dark-mode .calc-key{background:#172638;color:#F5F8FC}
+body.dark-mode .calc-key:hover{background:#20344A}
+body.dark-mode .calc-key.operator{background:rgba(1,136,246,.16);color:#54D9FA}
+body.dark-mode .summary-value{color:#54D9FA}
+body.dark-mode .summary-value.positive{color:#4ade80}
+body.dark-mode .summary-value.negative{color:#ff7b86}
+body.dark-mode .summary-value.neutral{color:#facc15}
+
+/* Mantém a identidade da marca nos dois temas */
+body.dark-mode .logo .brand-sure{color:#FFFFFF !important}
+body.dark-mode .logo .brand-hub{color:#0188F6 !important}
+
+@media(max-width:620px){
+    .header-actions{gap:7px}
+    .theme-toggle{padding-left:8px}
+    .theme-toggle-label{display:none}
+    .surehub-logo-mark{width:38px;height:38px}
+    .logo{gap:7px;font-size:18px}
+    .back-link{font-size:12px}
+}
+</style>
+
+
+<style id="surehub-editable-logo-slot">
+.surehub-logo-mark{
+    flex:0 0 auto;
+    background:rgba(255,255,255,.04);
+}
+/* Se logo-surehub.png ainda não existir, o espaço continua reservado. */
+.logo:has(.surehub-logo-mark[style*="visibility: hidden"]) .surehub-logo-mark{
+    width:44px;
+    height:44px;
+}
+@media(max-width:620px){
+    .logo:has(.surehub-logo-mark[style*="visibility: hidden"]) .surehub-logo-mark{
+        width:38px;
+        height:38px;
+    }
+}
+</style>
+
+
+<style id="surehub-boosted-odds">
+.boost-field input{border-color:rgba(3,200,247,.35)}
+.boost-field label{color:var(--azul-escuro)}
+.boost-hint{display:block;margin-top:5px;font-size:11px;color:var(--cinza-texto)}
+@media(min-width:700px){.result-fields{grid-template-columns:1fr 1fr 1fr 1fr!important}.commission-field{grid-column:1 / -1!important;max-width:calc((100% - 30px) / 4)!important}}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container header-content">
+
+<a href="index.html" class="logo">
+    <!-- LOGOMARCA SUREHUB
+     Coloque o arquivo da sua logo na mesma pasta deste HTML
+     e use o nome "logo-surehub.png".
+     Se quiser outro nome/caminho, altere apenas o src abaixo. -->
+<img src="favicon.png"
+     alt="Logo SureHUB"
+     class="surehub-logo-mark"
+     onerror="this.style.visibility='hidden';"
+>
+    <span class="brand-name"><span class="brand-sure">Sure</span><span class="brand-hub">HUB</span></span>
+</a>
+
+        <div class="header-actions">
+<button type="button" id="themeToggle" class="theme-toggle" aria-label="Ativar modo noturno" aria-pressed="false">
+    <span class="theme-toggle-label">Modo noturno</span>
+    <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb">☀</span></span>
+</button>
+<a href="index.html" class="back-link">
+            ← Voltar ao portal
+        </a>
+</div>
+
+    </div>
+</header>
+
+
+<main>
+
+    <section class="hero">
+        <div class="container">
+
+            <div class="hero-badge">
+                CALCULADORA PROFISSIONAL
+            </div>
+
+            <h1>
+                Calculadora <span>Aumentada</span>
+            </h1>
+
+            <p>
+                Distribua sua stake entre diferentes resultados e considere
+                automaticamente as comissões de Exchange.
+            </p>
+
+        </div>
+    </section>
+
+
+    <section class="container calculator-grid">
+
+        <!-- CONFIGURAÇÃO -->
+
+        <div>
+
+            <div class="card">
+
+                <div class="card-title">
+                    <div>
+                        <h2>Configuração</h2>
+                        <p>Informe sua banca e os resultados que deseja cobrir.</p>
+                    </div>
+                </div>
+
+
+                <div class="field">
+
+                    <label for="totalStake">
+                        Valor total da operação
+                    </label>
+
+                    <input
+                        type="number"
+                        id="totalStake"
+                        min="0"
+                        step="0.01"
+                        value="100"
+                        placeholder="Ex.: 100"
+                    >
+
+                </div>
+
+
+                <div class="card-title" style="margin-top:25px; margin-bottom:13px;">
+                    <div>
+                        <h2 style="font-size:15px;">
+                            Resultados
+                        </h2>
+
+                        <p>
+                            Adicione as odds que deseja utilizar.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div id="resultsList" class="results-list"></div>
+
+
+                <div class="buttons">
+
+                    <button
+                        type="button"
+                        id="addResult"
+                        class="btn btn-secondary"
+                    >
+                        + Adicionar resultado
+                    </button>
+
+                    <button
+                        type="button"
+                        id="calculate"
+                        class="btn btn-primary"
+                    >
+                        Calcular Dutching
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>
+                    Como funciona?
+                </strong>
+
+                <p>
+                    A calculadora distribui o valor total da operação de acordo
+                    com as odds informadas. Quando houver Exchange, a comissão
+                    será considerada sobre o lucro da aposta vencedora.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULTADOS -->
+
+        <div>
+
+            <div class="card">
+
+                <div class="card-title">
+
+                    <div>
+                        <h2>Resultado da operação</h2>
+                        <p>Valores calculados automaticamente.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-grid">
+
+                    <div class="summary-box">
+
+                        <div class="summary-label">
+                            Stake total
+                        </div>
+
+                        <div
+                            id="summaryStake"
+                            class="summary-value"
+                        >
+                            R$ 100,00
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-box">
+
+                        <div class="summary-label">
+                            Retorno líquido
+                        </div>
+
+                        <div
+                            id="summaryReturn"
+                            class="summary-value"
+                        >
+                            R$ 0,00
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-box">
+
+                        <div class="summary-label">
+                            Lucro / Prejuízo
+                        </div>
+
+                        <div
+                            id="summaryProfit"
+                            class="summary-value"
+                        >
+                            R$ 0,00
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-box">
+
+                        <div class="summary-label">
+                            ROI
+                        </div>
+
+                        <div
+                            id="summaryROI"
+                            class="summary-value"
+                        >
+                            0,00%
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-box full">
+
+                        <div class="summary-label">
+                            Margem / Overround
+                        </div>
+
+                        <div
+                            id="summaryMargin"
+                            class="summary-value"
+                        >
+                            0,00%
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div id="status" class="status">
+
+                    <div class="status-title">
+                        Aguardando cálculo
+                    </div>
+
+                    <div class="status-text">
+                        Informe pelo menos dois resultados válidos.
+                    </div>
+
+                </div>
+
+
+                <div class="distribution">
+
+                    <div class="distribution-title">
+                        Distribuição da stake
+                    </div>
+
+                    <div id="distributionList"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card" style="margin-top:20px;">
+
+                <div class="card-title">
+
+                    <div>
+                        <h2>Detalhamento</h2>
+                        <p>
+                            Confira quanto deve ser colocado em cada resultado.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Resultado</th>
+                                <th>Tipo</th>
+                                <th>Odd</th>
+                                <th>Comissão</th>
+                                <th>Stake</th>
+                                <th>Retorno líquido</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="detailsBody">
+
+                            <tr>
+                                <td colspan="6">
+                                    Nenhum cálculo realizado.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="standard-calculator-section">
+
+        <div class="container standard-calculator-wrap">
+
+            <div class="standard-calculator-heading">
+                <h2>Calculadora <span>Tradicional</span></h2>
+                <p>Faça cálculos rápidos sem sair da página.</p>
+            </div>
+
+            <div class="standard-calculator">
+
+                <div
+                    id="standardDisplay"
+                    class="standard-display"
+                    role="status"
+                    aria-live="polite"
+                >
+                    <div id="standardExpression" class="standard-expression"></div>
+                    <div id="standardCurrentValue" class="standard-current-value">0</div>
+                </div>
+
+                <div class="standard-buttons" id="standardButtons">
+                    <button type="button" class="calc-key clear" data-action="clear">C</button>
+                    <button type="button" class="calc-key operator" data-action="sign">+/−</button>
+                    <button type="button" class="calc-key operator" data-action="percent">%</button>
+                    <button type="button" class="calc-key operator" data-operator="/">÷</button>
+
+                    <button type="button" class="calc-key" data-value="7">7</button>
+                    <button type="button" class="calc-key" data-value="8">8</button>
+                    <button type="button" class="calc-key" data-value="9">9</button>
+                    <button type="button" class="calc-key operator" data-operator="*">×</button>
+
+                    <button type="button" class="calc-key" data-value="4">4</button>
+                    <button type="button" class="calc-key" data-value="5">5</button>
+                    <button type="button" class="calc-key" data-value="6">6</button>
+                    <button type="button" class="calc-key operator" data-operator="-">−</button>
+
+                    <button type="button" class="calc-key" data-value="1">1</button>
+                    <button type="button" class="calc-key" data-value="2">2</button>
+                    <button type="button" class="calc-key" data-value="3">3</button>
+                    <button type="button" class="calc-key operator" data-operator="+">+</button>
+
+                    <button type="button" class="calc-key clear" data-action="backspace">⌫</button>
+                    <button type="button" class="calc-key" data-value="0">0</button>
+                    <button type="button" class="calc-key" data-value=".">,</button>
+                    <button type="button" class="calc-key equals" data-action="equals">=</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+        SureHUB © 2026 — Calculadora Aumentada
+    </div>
+
+</footer>
+
+
+<script>
+
+    const resultsList = document.getElementById("resultsList");
+    const addResultButton = document.getElementById("addResult");
+    const calculateButton = document.getElementById("calculate");
+
+    const totalStakeInput = document.getElementById("totalStake");
+
+    let resultCount = 0;
+
+
+    function money(value) {
+
+        return Number(value || 0).toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        });
+
+    }
+
+
+    function percent(value) {
+
+        return Number(value || 0).toLocaleString("pt-BR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }) + "%";
+
+    }
+
+
+    function formatOddInput(event) {
+
+        const input = event.target;
+
+        const digits = input.value
+            .replace(/\D/g, "")
+            .slice(0, 8);
+
+
+        if (!digits) {
+            input.value = "";
+            calculate();
+            return;
+        }
+
+
+        input.value =
+            (Number(digits) / 100).toFixed(2);
+
+
+        calculate();
+
+    }
+
+
+    function createResult() {
+
+        resultCount++;
+
+        const row = document.createElement("div");
+
+        row.className = "result-row";
+
+        row.dataset.id = resultCount;
+
+
+        row.innerHTML = `
+
+            <div class="result-top">
+
+                <div class="result-number">
+
+                    <div class="number-circle">
+                        ${resultCount}
+                    </div>
+
+                    <span>
+                        Resultado ${resultCount}
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="remove-btn"
+                    title="Remover resultado"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="result-fields">
+
+                <div>
+
+                    <label>
+                        Tipo
+                    </label>
+
+                    <select class="type">
+
+                        <option value="book">
+                            Casa de apostas
+                        </option>
+
+                        <option value="exchange">
+                            Exchange
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Odd
+                    </label>
+
+                    <input
+                        class="odd"
+                        type="text"
+                        inputmode="numeric"
+                        autocomplete="off"
+                        maxlength="10"
+                        placeholder="Ex.: 2.00"
+                    >
+
+                </div>
+
+                <div class="boost-field">
+                    <label>Aumento (%)</label>
+                    <input class="boost" type="number" min="0" step="0.01" value="0" placeholder="Ex.: 25">
+                    <span class="boost-hint">0% = odd normal</span>
+                </div>
+
+                <div class="stake-field">
+
+                    <label>
+                        Valor a apostar
+                    </label>
+
+                    <div class="calculated-stake">
+                        <span>Stake</span>
+                        <strong class="stake-value">R$ 0,00</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="commission-field">
+
+                    <label>
+                        Comissão (%)
+                    </label>
+
+                    <input
+                        class="commission"
+                        type="number"
+                        min="0"
+                        max="100"
+                        step="0.01"
+                        value="5"
+                        placeholder="Ex.: 5"
+                    >
+
+                </div>
+
+            </div>
+        `;
+
+
+        const type = row.querySelector(".type");
+
+
+        type.addEventListener("change", () => {
+
+            row.classList.toggle(
+                "exchange",
+                type.value === "exchange"
+            );
+
+            calculate();
+
+        });
+
+
+        const oddInput = row.querySelector(".odd");
+
+
+        oddInput.addEventListener(
+            "input",
+            formatOddInput
+        );
+
+
+        oddInput.addEventListener(
+            "focus",
+            event => event.target.select()
+        );
+
+
+        row.querySelector(".commission").addEventListener(
+            "input",
+            calculate
+        );
+
+        row.querySelector(".boost").addEventListener(
+            "input",
+            calculate
+        );
+
+
+        row.querySelector(".remove-btn").addEventListener(
+            "click",
+            () => {
+
+                if (resultsList.children.length <= 2) {
+
+                    alert(
+                        "A calculadora precisa de pelo menos 2 resultados."
+                    );
+
+                    return;
+                }
+
+                row.remove();
+
+                renumberResults();
+
+                calculate();
+
+            }
+        );
+
+
+        resultsList.appendChild(row);
+
+        return row;
+
+    }
+
+
+    function renumberResults() {
+
+        const rows = [
+            ...resultsList.querySelectorAll(".result-row")
+        ];
+
+        rows.forEach((row, index) => {
+
+            const number = index + 1;
+
+            row.querySelector(".number-circle").textContent =
+                number;
+
+            row.querySelector(".result-number span").textContent =
+                `Resultado ${number}`;
+
+        });
+
+    }
+
+
+    function getResults() {
+
+        const rows = [
+            ...resultsList.querySelectorAll(".result-row")
+        ];
+
+
+        return rows.map((row, index) => {
+
+            const type =
+                row.querySelector(".type").value;
+
+            const odd =
+                parseFloat(row.querySelector(".odd").value);
+
+            const commission =
+                parseFloat(
+                    row.querySelector(".commission").value
+                ) || 0;
+
+            const boost =
+                Math.max(0, parseFloat(row.querySelector(".boost").value) || 0);
+
+            const boostedOdd = Number.isFinite(odd)
+                ? odd * (1 + boost / 100)
+                : odd;
+
+            return {
+
+                index: index + 1,
+
+                type,
+
+                baseOdd: odd,
+                boost,
+                odd: boostedOdd,
+
+                commission:
+                    type === "exchange"
+                        ? commission
+                        : 0
+
+            };
+
+        });
+
+    }
+
+
+    function calculate() {
+
+        const totalStake =
+            parseFloat(totalStakeInput.value);
+
+
+        const results = getResults();
+
+
+        const validResults = results.filter(
+            result =>
+                Number.isFinite(result.odd) &&
+                result.odd > 1
+        );
+
+
+        if (
+            !Number.isFinite(totalStake) ||
+            totalStake <= 0 ||
+            validResults.length < 2
+        ) {
+
+            resetSummary();
+
+            return;
+
+        }
+
+
+        /*
+         * Para cada resultado calculamos um
+         * "retorno efetivo" considerando a comissão
+         * do Exchange.
+         *
+         * Casa tradicional:
+         *
+         * retorno = odd
+         *
+         * Exchange:
+         *
+         * lucro líquido = (odd - 1) × (1 - comissão)
+         *
+         * retorno total = 1 + lucro líquido
+         */
+
+        validResults.forEach(result => {
+
+            const commissionRate =
+                result.commission / 100;
+
+            result.effectiveReturn =
+                result.type === "exchange"
+
+                    ? 1 +
+                      ((result.odd - 1) *
+                      (1 - commissionRate))
+
+                    : result.odd;
+
+        });
+
+
+        /*
+         * Dutching:
+         *
+         * Stake_i =
+         * totalStake / effectiveReturn_i
+         * dividido pela soma dos inversos
+         */
+
+        const inverseSum =
+            validResults.reduce(
+                (sum, result) =>
+                    sum + (1 / result.effectiveReturn),
+                0
+            );
+
+
+        validResults.forEach(result => {
+
+            result.stake =
+                totalStake *
+                (1 / result.effectiveReturn) /
+                inverseSum;
+
+
+            if (result.type === "exchange") {
+
+                const grossProfit =
+                    result.stake *
+                    (result.odd - 1);
+
+                const commissionValue =
+                    grossProfit *
+                    (result.commission / 100);
+
+                result.netProfit =
+                    grossProfit -
+                    commissionValue;
+
+                result.netReturn =
+                    result.stake +
+                    result.netProfit;
+
+            } else {
+
+                result.netReturn =
+                    result.stake *
+                    result.odd;
+
+                result.netProfit =
+                    result.netReturn -
+                    result.stake;
+
+            }
+
+        });
+
+
+        /*
+         * Para um Dutching perfeito, os retornos
+         * líquidos são iguais.
+         */
+
+        const returns =
+            validResults.map(
+                result => result.netReturn
+            );
+
+
+        const averageReturn =
+            returns.reduce(
+                (a, b) => a + b,
+                0
+            ) / returns.length;
+
+
+        const profit =
+            averageReturn - totalStake;
+
+
+        const roi =
+            (profit / totalStake) * 100;
+
+
+        /*
+         * Overround tradicional baseado nas odds.
+         */
+
+        const overround =
+            validResults.reduce(
+                (sum, result) =>
+                    sum + (1 / result.odd),
+                0
+            ) * 100;
+
+
+        updateSummary(
+            totalStake,
+            averageReturn,
+            profit,
+            roi,
+            overround
+        );
+
+
+        updateDistribution(
+            validResults,
+            totalStake
+        );
+
+
+        updateInlineStakes(
+            validResults
+        );
+
+
+        updateTable(
+            validResults
+        );
+
+    }
+
+
+    function updateInlineStakes(results) {
+
+        const rows = [
+            ...resultsList.querySelectorAll(".result-row")
+        ];
+
+        rows.forEach(row => {
+            row.querySelector(".stake-value").textContent = money(0);
+        });
+
+        results.forEach(result => {
+            const row = rows[result.index - 1];
+
+            if (row) {
+                row.querySelector(".stake-value").textContent =
+                    money(result.stake);
+            }
+        });
+
+    }
+
+
+    function updateSummary(
+        totalStake,
+        returnValue,
+        profit,
+        roi,
+        margin
+    ) {
+
+        document.getElementById(
+            "summaryStake"
+        ).textContent = money(totalStake);
+
+
+        document.getElementById(
+            "summaryReturn"
+        ).textContent = money(returnValue);
+
+
+        const profitElement =
+            document.getElementById("summaryProfit");
+
+
+        profitElement.textContent =
+            money(profit);
+
+
+        profitElement.className =
+            "summary-value " +
+            (
+                profit > 0.005
+                    ? "positive"
+                    : profit < -0.005
+                        ? "negative"
+                        : "neutral"
+            );
+
+
+        const roiElement =
+            document.getElementById("summaryROI");
+
+
+        roiElement.textContent =
+            percent(roi);
+
+
+        roiElement.className =
+            "summary-value " +
+            (
+                roi > 0.005
+                    ? "positive"
+                    : roi < -0.005
+                        ? "negative"
+                        : "neutral"
+            );
+
+
+        document.getElementById(
+            "summaryMargin"
+        ).textContent =
+            percent(margin);
+
+
+        const status =
+            document.getElementById("status");
+
+
+        status.className =
+            "status " +
+            (
+                profit > 0.005
+                    ? "profit"
+                    : profit < -0.005
+                        ? "loss"
+                        : ""
+            );
+
+
+        const title =
+            status.querySelector(".status-title");
+
+
+        const text =
+            status.querySelector(".status-text");
+
+
+        if (profit > 0.005) {
+
+            title.textContent =
+                "Resultado positivo";
+
+            text.textContent =
+                `Com os parâmetros informados, o retorno líquido médio fica ${money(profit)} acima da stake total.`;
+
+        } else if (profit < -0.005) {
+
+            title.textContent =
+                "Operação com prejuízo";
+
+            text.textContent =
+                `Com os parâmetros informados, a operação apresenta uma diferença de ${money(Math.abs(profit))} em relação à stake total.`;
+
+        } else {
+
+            title.textContent =
+                "Operação equilibrada";
+
+            text.textContent =
+                "Os retornos líquidos calculados ficam praticamente iguais à stake total.";
+
+        }
+
+    }
+
+
+    function updateDistribution(
+        results,
+        totalStake
+    ) {
+
+        const container =
+            document.getElementById(
+                "distributionList"
+            );
+
+
+        container.innerHTML = "";
+
+
+        results.forEach(result => {
+
+            const percentage =
+                (result.stake / totalStake) * 100;
+
+
+            const row =
+                document.createElement("div");
+
+
+            row.className =
+                "distribution-row";
+
+
+            row.innerHTML = `
+
+                <span>
+                    Resultado ${result.index}
+                </span>
+
+                <div class="bar">
+                    <span style="width:${Math.min(
+                        percentage,
+                        100
+                    )}%"></span>
+                </div>
+
+                <strong>
+                    ${percent(percentage)}
+                </strong>
+
+            `;
+
+
+            container.appendChild(row);
+
+        });
+
+    }
+
+
+    function updateTable(results) {
+
+        const body =
+            document.getElementById(
+                "detailsBody"
+            );
+
+
+        body.innerHTML = "";
+
+
+        results.forEach(result => {
+
+            const row =
+                document.createElement("tr");
+
+
+            row.innerHTML = `
+
+                <td>
+                    Resultado ${result.index}
+                </td>
+
+                <td>
+                    ${
+                        result.type === "exchange"
+                            ? "Exchange"
+                            : "Casa"
+                    }
+                </td>
+
+                <td>
+                    ${result.odd.toFixed(2)}
+                </td>
+
+                <td>
+                    ${
+                        result.type === "exchange"
+                            ? percent(result.commission)
+                            : "—"
+                    }
+                </td>
+
+                <td>
+                    ${money(result.stake)}
+                </td>
+
+                <td>
+                    ${money(result.netReturn)}
+                </td>
+
+            `;
+
+
+            body.appendChild(row);
+
+        });
+
+    }
+
+
+    function resetSummary() {
+
+        resultsList.querySelectorAll(".stake-value").forEach(
+            element => {
+                element.textContent = money(0);
+            }
+        );
+
+        document.getElementById(
+            "summaryStake"
+        ).textContent =
+            money(
+                parseFloat(totalStakeInput.value) || 0
+            );
+
+
+        document.getElementById(
+            "summaryReturn"
+        ).textContent =
+            money(0);
+
+
+        document.getElementById(
+            "summaryProfit"
+        ).textContent =
+            money(0);
+
+
+        document.getElementById(
+            "summaryROI"
+        ).textContent =
+            percent(0);
+
+
+        document.getElementById(
+            "summaryMargin"
+        ).textContent =
+            percent(0);
+
+
+        document.getElementById(
+            "distributionList"
+        ).innerHTML = "";
+
+
+        document.getElementById(
+            "detailsBody"
+        ).innerHTML = `
+
+            <tr>
+                <td colspan="6">
+                    Nenhum cálculo realizado.
+                </td>
+            </tr>
+
+        `;
+
+
+        const status =
+            document.getElementById("status");
+
+
+        status.className = "status";
+
+
+        status.querySelector(
+            ".status-title"
+        ).textContent =
+            "Aguardando cálculo";
+
+
+        status.querySelector(
+            ".status-text"
+        ).textContent =
+            "Informe pelo menos dois resultados válidos.";
+
+    }
+
+
+    addResultButton.addEventListener(
+        "click",
+        () => {
+
+            if (resultsList.children.length >= 12) {
+
+                alert(
+                    "Você pode adicionar no máximo 12 resultados."
+                );
+
+                return;
+
+            }
+
+            createResult();
+
+        }
+    );
+
+
+    calculateButton.addEventListener(
+        "click",
+        calculate
+    );
+
+
+    totalStakeInput.addEventListener(
+        "input",
+        calculate
+    );
+
+
+    /* Calculadora tradicional */
+
+    const standardExpression =
+        document.getElementById("standardExpression");
+
+    const standardCurrentValue =
+        document.getElementById("standardCurrentValue");
+
+    const standardButtons =
+        document.getElementById("standardButtons");
+
+    let standardInput = "0";
+    let standardStoredValue = null;
+    let standardOperator = null;
+    let standardWaitingForOperand = false;
+    let standardExpressionText = "";
+
+
+    function renderStandardDisplay() {
+        standardExpression.textContent = standardExpressionText;
+
+        standardCurrentValue.textContent =
+            standardInput === "Erro"
+                ? "Erro"
+                : standardInput.replace(".", ",");
+    }
+
+
+    function standardOperatorSymbol(operator) {
+        return {
+            "+": "+",
+            "-": "−",
+            "*": "×",
+            "/": "÷"
+        }[operator] || "";
+    }
+
+
+    function standardDisplayNumber(value) {
+        return String(value).replace(".", ",");
+    }
+
+
+    function showCurrentStandardOperation(includeInput = false) {
+        if (standardStoredValue === null || standardOperator === null) {
+            return;
+        }
+
+        standardExpressionText =
+            `${standardDisplayNumber(standardStoredValue)} ` +
+            `${standardOperatorSymbol(standardOperator)}` +
+            (
+                includeInput
+                    ? ` ${standardDisplayNumber(standardInput)}`
+                    : ""
+            );
+    }
+
+
+    function normalizeStandardResult(value) {
+        if (!Number.isFinite(value)) {
+            return "Erro";
+        }
+
+        return String(Number(value.toPrecision(12)));
+    }
+
+
+    function computeStandard(first, second, operator) {
+        switch (operator) {
+            case "+":
+                return first + second;
+            case "-":
+                return first - second;
+            case "*":
+                return first * second;
+            case "/":
+                return second === 0 ? NaN : first / second;
+            default:
+                return second;
+        }
+    }
+
+
+    function clearStandardCalculator() {
+        standardInput = "0";
+        standardStoredValue = null;
+        standardOperator = null;
+        standardWaitingForOperand = false;
+        standardExpressionText = "";
+        renderStandardDisplay();
+    }
+
+
+    function inputStandardValue(value) {
+        if (standardInput === "Erro" || standardWaitingForOperand) {
+            if (standardOperator === null) {
+                standardExpressionText = "";
+            }
+
+            standardInput = value === "." ? "0." : value;
+            standardWaitingForOperand = false;
+        } else if (value === ".") {
+            if (!standardInput.includes(".")) {
+                standardInput += ".";
+            }
+        } else {
+            standardInput =
+                standardInput === "0"
+                    ? value
+                    : standardInput + value;
+        }
+
+        showCurrentStandardOperation(true);
+        renderStandardDisplay();
+    }
+
+
+    function chooseStandardOperator(nextOperator) {
+        const inputValue = parseFloat(standardInput);
+
+        if (standardInput === "Erro") {
+            clearStandardCalculator();
+            return;
+        }
+
+        if (
+            standardOperator &&
+            standardStoredValue !== null &&
+            !standardWaitingForOperand
+        ) {
+            const result = computeStandard(
+                standardStoredValue,
+                inputValue,
+                standardOperator
+            );
+
+            standardInput = normalizeStandardResult(result);
+            standardStoredValue =
+                standardInput === "Erro"
+                    ? null
+                    : parseFloat(standardInput);
+
+            renderStandardDisplay();
+        } else if (standardStoredValue === null) {
+            standardStoredValue = inputValue;
+        }
+
+        if (standardInput !== "Erro") {
+            standardOperator = nextOperator;
+            standardWaitingForOperand = true;
+            showCurrentStandardOperation(false);
+            renderStandardDisplay();
+        }
+    }
+
+
+    function finishStandardCalculation() {
+        if (
+            standardOperator === null ||
+            standardStoredValue === null ||
+            standardWaitingForOperand ||
+            standardInput === "Erro"
+        ) {
+            return;
+        }
+
+        const firstValue = standardStoredValue;
+        const secondValue = parseFloat(standardInput);
+        const completedOperator = standardOperator;
+
+        const result = computeStandard(
+            firstValue,
+            secondValue,
+            completedOperator
+        );
+
+        standardExpressionText =
+            `${standardDisplayNumber(firstValue)} ` +
+            `${standardOperatorSymbol(completedOperator)} ` +
+            `${standardDisplayNumber(standardInput)} =`;
+
+        standardInput = normalizeStandardResult(result);
+        standardStoredValue = null;
+        standardOperator = null;
+        standardWaitingForOperand = true;
+        renderStandardDisplay();
+    }
+
+
+    standardButtons.addEventListener("click", event => {
+        const button = event.target.closest(".calc-key");
+
+        if (!button) {
+            return;
+        }
+
+        if (button.dataset.value !== undefined) {
+            inputStandardValue(button.dataset.value);
+            return;
+        }
+
+        if (button.dataset.operator) {
+            chooseStandardOperator(button.dataset.operator);
+            return;
+        }
+
+        switch (button.dataset.action) {
+            case "clear":
+                clearStandardCalculator();
+                break;
+
+            case "backspace":
+                if (!standardWaitingForOperand && standardInput !== "Erro") {
+                    standardInput =
+                        standardInput.length > 1
+                            ? standardInput.slice(0, -1)
+                            : "0";
+                    showCurrentStandardOperation(true);
+                    renderStandardDisplay();
+                }
+                break;
+
+            case "sign":
+                if (standardInput !== "0" && standardInput !== "Erro") {
+                    standardInput = String(-parseFloat(standardInput));
+                    showCurrentStandardOperation(true);
+                    renderStandardDisplay();
+                }
+                break;
+
+            case "percent":
+                if (standardInput !== "Erro") {
+                    standardInput = normalizeStandardResult(
+                        parseFloat(standardInput) / 100
+                    );
+                    showCurrentStandardOperation(true);
+                    renderStandardDisplay();
+                }
+                break;
+
+            case "equals":
+                finishStandardCalculation();
+                break;
+        }
+    });
+
+
+    /*
+     * Inicialização
+     */
+
+    const first = createResult();
+    const second = createResult();
+
+
+    first.querySelector(".odd").value = "2.00";
+    second.querySelector(".odd").value = "2.00";
+
+
+    calculate();
+
+</script>
+
+
+
+<script id="surehub-standard-keyboard-support">
+(() => {
+    function calculatorIsReady() {
+        return typeof inputStandardValue === "function"
+            && typeof chooseStandardOperator === "function"
+            && typeof finishStandardCalculation === "function"
+            && typeof clearStandardCalculator === "function";
+    }
+
+    function runBackspace() {
+        if (typeof standardWaitingForOperand === "undefined") return;
+        if (!standardWaitingForOperand && standardInput !== "Erro") {
+            standardInput =
+                standardInput.length > 1
+                    ? standardInput.slice(0, -1)
+                    : "0";
+
+            if (typeof showCurrentStandardOperation === "function") {
+                showCurrentStandardOperation(true);
+            }
+            if (typeof renderStandardDisplay === "function") {
+                renderStandardDisplay();
+            }
+        }
+    }
+
+    document.addEventListener("keydown", event => {
+        if (!calculatorIsReady()) return;
+
+        /* Não interfere quando o usuário está digitando nos campos
+           da calculadora Dutching (banca, odds, comissão etc.). */
+        const target = event.target;
+        const isFormField =
+            target instanceof HTMLInputElement ||
+            target instanceof HTMLTextAreaElement ||
+            target instanceof HTMLSelectElement ||
+            target.isContentEditable;
+
+        if (isFormField) return;
+
+        const key = event.key;
+
+        if (/^[0-9]$/.test(key)) {
+            event.preventDefault();
+            inputStandardValue(key);
+            return;
+        }
+
+        if (key === "." || key === ",") {
+            event.preventDefault();
+            inputStandardValue(".");
+            return;
+        }
+
+        if (["+", "-", "*", "/"].includes(key)) {
+            event.preventDefault();
+            chooseStandardOperator(key);
+            return;
+        }
+
+        /* Teclado numérico também pode enviar "x" em alguns layouts. */
+        if (key.toLowerCase() === "x") {
+            event.preventDefault();
+            chooseStandardOperator("*");
+            return;
+        }
+
+        if (key === "Enter" || key === "=") {
+            event.preventDefault();
+            finishStandardCalculation();
+            return;
+        }
+
+        if (key === "Backspace") {
+            event.preventDefault();
+            runBackspace();
+            return;
+        }
+
+        if (key === "Escape" || key === "Delete") {
+            event.preventDefault();
+            clearStandardCalculator();
+            return;
+        }
+
+        if (key === "%") {
+            event.preventDefault();
+            if (standardInput !== "Erro") {
+                standardInput = normalizeStandardResult(
+                    parseFloat(standardInput) / 100
+                );
+                showCurrentStandardOperation(true);
+                renderStandardDisplay();
+            }
+        }
+    });
+})();
+</script>
+
+
+<script id="surehub-theme-toggle-script">
+(() => {
+    const button = document.getElementById("themeToggle");
+    if (!button) return;
+    const label = button.querySelector(".theme-toggle-label");
+    const thumb = button.querySelector(".theme-toggle-thumb");
+
+    function applyTheme(isDark) {
+        document.body.classList.toggle("dark-mode", isDark);
+        button.setAttribute("aria-pressed", String(isDark));
+        button.setAttribute("aria-label", isDark ? "Desativar modo noturno" : "Ativar modo noturno");
+        if (label) label.textContent = isDark ? "Modo claro" : "Modo noturno";
+        if (thumb) thumb.textContent = isDark ? "☾" : "☀";
+    }
+
+    applyTheme(false);
+    button.addEventListener("click", () => {
+        applyTheme(!document.body.classList.contains("dark-mode"));
+    });
+})();
+</script>
+
+</body>
+</html>
